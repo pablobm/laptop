@@ -1,0 +1,25 @@
+[user]
+  name = Pablo Brasero
+  email = pablo@pablobm.com
+
+[core]
+  pager = cat
+  excludesfile = ~/.git.global_ignores
+  trustctime = false # See http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+
+[push]
+  default = current
+
+[include]
+  path = ~/.git.local
+
+[alias]
+  co = checkout
+
+[diff]
+  compactionheuristic = true
