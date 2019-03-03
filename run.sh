@@ -12,6 +12,7 @@ if ! sudo -v 2>/dev/null; then
 fi
 
 sudo apt update
+sudo apt upgrade -y
 
 sudo apt install -y git
 
