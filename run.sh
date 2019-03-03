@@ -23,7 +23,7 @@ sudo apt install -y tig
 sudo apt install -y curl
 sudo apt install -y pass
 
-# User by GnuPG to display pictures linked to keys.
+# Used by GnuPG to display pictures linked to keys.
 # Recommended but not required.
 sudo apt install -y xloadimage
 
