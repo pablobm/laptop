@@ -14,3 +14,7 @@ fi
 sudo apt update
 
 sudo apt install -y git
+
+# User by GnuPG to display pictures linked to keys.
+# Recommended but not required.
+sudo apt install -y xloadimage
