@@ -15,6 +15,7 @@ sudo apt update
 sudo apt upgrade -y
 
 sudo apt install -y git
+sudo apt install -y curl
 
 # User by GnuPG to display pictures linked to keys.
 # Recommended but not required.
