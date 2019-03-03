@@ -27,6 +27,10 @@ sudo apt install -y pass
 # Recommended but not required.
 sudo apt install -y xloadimage
 
+# Used to interact with keyservers.
+# Required by apt-key and asdf.
+sudo apt install -y dirmngr
+
 GITCONFIG="$HOME/.gitconfig"
 if [ -f "$GITCONFIG" ] || [ -L "$GITCONFIG" ]; then
   echo "FATAL: The file $GITCONFIG already exists. Stopping to avoid overwriting your settings."
