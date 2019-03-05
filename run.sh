@@ -22,6 +22,7 @@ sudo apt install -y gitg
 sudo apt install -y tig
 sudo apt install -y curl
 sudo apt install -y pass
+sudo apt install -y neovim
 
 # Used by GnuPG to display pictures linked to keys.
 # Recommended but not required.
