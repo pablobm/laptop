@@ -2,6 +2,7 @@
 
 LAPTOP_RUNNER=$(readlink -f "$0")
 LAPTOP_DIR=$(dirname "$LAPTOP_RUNNER")
+CONFIGS_DIR="$LAPTOP_DIR"/configs
 
 if ! command -v sudo >/dev/null; then
 	echo 'FATAL: Please install sudo before running this script.'
@@ -32,10 +33,19 @@ sudo apt install -y xloadimage
 # Required by apt-key and asdf.
 sudo apt install -y dirmngr
 
-GITCONFIG="$HOME/.gitconfig"
-if [ -f "$GITCONFIG" ] || [ -L "$GITCONFIG" ]; then
-	echo "FATAL: The file $GITCONFIG already exists. Stopping to avoid overwriting your settings."
-	echo "TIP: \`rm '$GITCONFIG'\` if you are happy to replace it."
-	exit 1
+DST_PATH="$HOME/.gitconfig"
+SRC_PATH="$CONFIGS_DIR/dot.gitconfig"
+if [ -L "$DST_PATH" ] && [ $(realpath "$DST_PATH") = $(realpath "$SRC_PATH") ]; then
+	echo "SKIP: $DST_PATH <- $SRC_PATH"
+elif [ -f "$DST_PATH" ] || [ -L "$DST_PATH" ]; then
+	while true; do
+		read -p "You already have a $DST_PATH. What should I do? (S)kip/(O)verwrite: " answer
+		case $answer in
+			[Oo] ) rm "$DST_PATH" && ln -s "$SRC_PATH" "$DST_PATH"; break;;
+			[Ss] ) echo "SKIP: $DST_PATH <- $SRC_PATH"; break;;
+			* ) echo "Please answer 's' for skip or 'o' for overwrite.";;
+		esac
+	done
+else
+	ln -s "$SRC_PATH" "$DST_PATH"
 fi
-ln -s "$LAPTOP_DIR/configs/dot.gitconfig" "$GITCONFIG"
