@@ -26,6 +26,8 @@ link_config()
 LAPTOP_RUNNER=$(readlink -f "$0")
 LAPTOP_DIR=$(dirname "$LAPTOP_RUNNER")
 CONFIGS_DIR="$LAPTOP_DIR"/configs
+HOME_BIN="$HOME/bin"
+DOWNLOADS_DIR="$HOME/Downloads"
 
 if ! command -v sudo >/dev/null; then
 	echo 'FATAL: Please install sudo before running this script.'
@@ -38,6 +40,8 @@ if ! sudo -v 2>/dev/null; then
 	exit 1
 fi
 
+mkdir -p "$HOME_BIN"
+
 sudo apt update
 sudo apt upgrade -y
 
@@ -46,7 +50,8 @@ sudo apt install -y gitg
 sudo apt install -y tig
 sudo apt install -y curl
 sudo apt install -y pass
-sudo apt install -y neovim
+sudo apt install -y silversearcher-ag
+sudo apt autoremove
 
 # Used by GnuPG to display pictures linked to keys.
 # Recommended but not required.
@@ -56,4 +61,13 @@ sudo apt install -y xloadimage
 # Required by apt-key and asdf.
 sudo apt install -y dirmngr
 
+# Stretch package for Neovim is old and incompatible with
+# current minpac at the time of writing.
+# Installing static binary instead
+NEOVIM_BIN="$HOME_BIN/nvim"
+if [ ! -f "$NEOVIM_BIN" ]; then
+	cd "$DOWNLOADS_DIR" && curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage && chmod u+x nvim.appimage && mv ./nvim.appimage "$NEOVIM_BIN"
+fi
+
 link_config "dot.gitconfig" ".gitconfig"
+link_config "dot.config/nvim" ".config/nvim"
