@@ -2,16 +2,17 @@
 
 link_config()
 {
-	SRC_RELPATH=$1
-	DST_RELPATH=$2
+	SRC_RELPATH="$1"
+	DST_RELPATH="$2"
 
 	SRC_PATH="$CONFIGS_DIR/$SRC_RELPATH"
 	DST_PATH="$HOME/$DST_RELPATH"
-	if [ -L "$DST_PATH" ] && [ $(realpath "$DST_PATH") = $(realpath "$SRC_PATH") ]; then
+
+	if [ -L "$DST_PATH" ] && [ "$(realpath "$DST_PATH")" = "$(realpath "$SRC_PATH")" ]; then
 		echo "SKIP: $DST_PATH <- $SRC_PATH"
 	elif [ -f "$DST_PATH" ] || [ -L "$DST_PATH" ]; then
 		while true; do
-			read -p "You already have a $DST_PATH. What should I do? (S)kip/(O)verwrite: " answer
+			read -rp "You already have a $DST_PATH. What should I do? (S)kip/(O)verwrite: " answer
 			case $answer in
 				[Oo] ) rm "$DST_PATH" && ln -s "$SRC_PATH" "$DST_PATH"; break;;
 				[Ss] ) echo "SKIP: $DST_PATH <- $SRC_PATH"; break;;
@@ -51,6 +52,7 @@ sudo apt install -y tig
 sudo apt install -y curl
 sudo apt install -y pass
 sudo apt install -y silversearcher-ag
+sudo apt install -y shellcheck
 sudo apt autoremove
 
 # Used by GnuPG to display pictures linked to keys.
