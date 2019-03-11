@@ -54,7 +54,6 @@ CONFIGS_DIR="$LAPTOP_DIR"/configs
 REPOS_DIR="$LAPTOP_DIR"/repos
 HOME_BIN="$HOME/bin"
 DOWNLOADS_DIR="$HOME/Downloads"
-ZSH_BIN="/usr/bin/zsh"
 WHOAMI="$(whoami)"
 
 if ! command -v sudo >/dev/null; then
