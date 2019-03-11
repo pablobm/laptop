@@ -29,6 +29,8 @@ LAPTOP_DIR=$(dirname "$LAPTOP_RUNNER")
 CONFIGS_DIR="$LAPTOP_DIR"/configs
 HOME_BIN="$HOME/bin"
 DOWNLOADS_DIR="$HOME/Downloads"
+ZSH_BIN="/usr/bin/zsh"
+WHOAMI="$(whoami)"
 
 if ! command -v sudo >/dev/null; then
 	echo 'FATAL: Please install sudo before running this script.'
@@ -53,6 +55,7 @@ sudo apt install -y curl
 sudo apt install -y pass
 sudo apt install -y silversearcher-ag
 sudo apt install -y shellcheck
+sudo apt install -y zsh
 sudo apt autoremove
 
 # Used by GnuPG to display pictures linked to keys.
@@ -62,6 +65,11 @@ sudo apt install -y xloadimage
 # Used to interact with keyservers.
 # Required by apt-key and asdf.
 sudo apt install -y dirmngr
+
+if [ "$SHELL" != "$ZSH_BIN" ]; then
+  sudo chsh -s "$ZSH_BIN" "$WHOAMI"
+  zsh
+fi
 
 # Stretch package for Neovim is old and incompatible with
 # current minpac at the time of writing.
