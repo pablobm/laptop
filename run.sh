@@ -24,9 +24,34 @@ link_config()
 	fi
 }
 
+link_repo()
+{
+	SRC_RELPATH="$1"
+	DST_RELPATH="$2"
+
+	SRC_PATH="$REPOS_DIR/$SRC_RELPATH"
+	DST_PATH="$HOME/$DST_RELPATH"
+
+	if [ -L "$DST_PATH" ] && [ "$(realpath "$DST_PATH")" = "$(realpath "$SRC_PATH")" ]; then
+		echo "SKIP: $DST_PATH <- $SRC_PATH"
+	elif [ -f "$DST_PATH" ] || [ -L "$DST_PATH" ]; then
+		while true; do
+			read -rp "You already have a $DST_PATH. What should I do? (S)kip/(O)verwrite: " answer
+			case $answer in
+				[Oo] ) rm "$DST_PATH" && ln -s "$SRC_PATH" "$DST_PATH"; break;;
+				[Ss] ) echo "SKIP: $DST_PATH <- $SRC_PATH"; break;;
+				* ) echo "Please answer 's' for skip or 'o' for overwrite.";;
+			esac
+		done
+	else
+		ln -s "$SRC_PATH" "$DST_PATH"
+	fi
+}
+
 LAPTOP_RUNNER=$(readlink -f "$0")
 LAPTOP_DIR=$(dirname "$LAPTOP_RUNNER")
 CONFIGS_DIR="$LAPTOP_DIR"/configs
+REPOS_DIR="$LAPTOP_DIR"/repos
 HOME_BIN="$HOME/bin"
 DOWNLOADS_DIR="$HOME/Downloads"
 ZSH_BIN="/usr/bin/zsh"
@@ -66,9 +91,6 @@ sudo apt install -y xloadimage
 # Required by apt-key and asdf.
 sudo apt install -y dirmngr
 
-# Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
 # Stretch package for Neovim is old and incompatible with
 # current minpac at the time of writing.
 # Installing static binary instead
@@ -79,3 +101,8 @@ fi
 
 link_config "dot.gitconfig" ".gitconfig"
 link_config "dot.config/nvim" ".config/nvim"
+link_config "dot.zshrc" ".zshrc"
+link_repo "oh-my-zsh" ".oh-my-zsh"
+
+sudo chsh -s /usr/bin/zsh "$WHOAMI"
+zsh
