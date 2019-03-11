@@ -66,10 +66,8 @@ sudo apt install -y xloadimage
 # Required by apt-key and asdf.
 sudo apt install -y dirmngr
 
-if [ "$SHELL" != "$ZSH_BIN" ]; then
-  sudo chsh -s "$ZSH_BIN" "$WHOAMI"
-  zsh
-fi
+# Oh My Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Stretch package for Neovim is old and incompatible with
 # current minpac at the time of writing.
