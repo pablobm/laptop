@@ -91,6 +91,7 @@ link_config "dot.gitconfig" ".gitconfig"
 link_config "dot.config/nvim" ".config/nvim"
 link_config "dot.zshrc" ".zshrc"
 link_repo "oh-my-zsh" ".oh-my-zsh"
+link_repo "dracula-zsh/dracula.zsh-theme" ".oh-my-zsh/custom/themes/dracula.zsh-theme"
 
 sudo chsh -s /usr/bin/zsh "$WHOAMI"
 zsh
