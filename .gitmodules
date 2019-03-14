@@ -7,3 +7,6 @@
 [submodule "repos/gnome-terminal-colors-dracula"]
 	path = repos/gnome-terminal-colors-dracula
 	url = https://github.com/GalaticStryder/gnome-terminal-colors-dracula
+[submodule "repos/zsh-syntax-highlighting"]
+	path = repos/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git

@@ -90,8 +90,11 @@ fi
 link_config "dot.gitconfig" ".gitconfig"
 link_config "dot.config/nvim" ".config/nvim"
 link_config "dot.zshrc" ".zshrc"
-link_repo "oh-my-zsh" ".oh-my-zsh"
 link_repo "dracula-zsh/dracula.zsh-theme" ".oh-my-zsh/custom/themes/dracula.zsh-theme"
+
+link_repo "oh-my-zsh" ".oh-my-zsh"
+mkdir -p "$HOME/.oh-my-zsh/custom/other"
+link_repo "zsh-syntax-highlighting" ".oh-my-zsh/custom/other/zsh-syntax-highlighting"
 
 # Dracula theme for Gnome Terminal
 # Requires a pre-existing terminal profile called "Pablo"
