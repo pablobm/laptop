@@ -4,3 +4,6 @@
 [submodule "repos/zsh"]
 	path = repos/dracula-zsh
 	url = https://github.com/dracula/zsh.git
+[submodule "repos/gnome-terminal-colors-dracula"]
+	path = repos/gnome-terminal-colors-dracula
+	url = https://github.com/GalaticStryder/gnome-terminal-colors-dracula

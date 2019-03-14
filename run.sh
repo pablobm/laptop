@@ -93,5 +93,9 @@ link_config "dot.zshrc" ".zshrc"
 link_repo "oh-my-zsh" ".oh-my-zsh"
 link_repo "dracula-zsh/dracula.zsh-theme" ".oh-my-zsh/custom/themes/dracula.zsh-theme"
 
+# Dracula theme for Gnome Terminal
+# Requires a pre-existing terminal profile called "Pablo"
+"$REPOS_DIR/gnome-terminal-colors-dracula/install.sh" -s Dracula -p Pablo --skip-dircolors
+
 sudo chsh -s /usr/bin/zsh "$WHOAMI"
 zsh
