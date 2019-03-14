@@ -4,6 +4,15 @@ Currently only supports Debian Stretch.
 
 ## How to use
 
-```
-sh ./install.sh
-```
+1. Create a new profile for Gnome Terminal named "Pablo". It will receive the
+  Dracula color scheme. This is because the installer apparently can't apply
+  these to the defaul profile, or create a profile itself.
+
+1. Run the installer: `sh ./install.sh`.
+
+## TODO
+
+* Try open a PR for https://github.com/dracula/gnome-terminal that creates a
+  new profile instead of expecting an existing, named ones.  These instructions
+  might come handy:
+  https://askubuntu.com/questions/270469/how-can-i-create-a-new-profile-for-gnome-terminal-via-command-line
