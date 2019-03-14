@@ -100,5 +100,7 @@ link_repo "zsh-syntax-highlighting" ".oh-my-zsh/custom/other/zsh-syntax-highligh
 # Requires a pre-existing terminal profile called "Pablo"
 "$REPOS_DIR/gnome-terminal-colors-dracula/install.sh" -s Dracula -p Pablo --skip-dircolors
 
-sudo chsh -s /usr/bin/zsh "$WHOAMI"
-zsh
+if [ "$SHELL" != "/usr/bin/zsh" ]; then
+  sudo chsh -s /usr/bin/zsh "$WHOAMI"
+  zsh
+fi
