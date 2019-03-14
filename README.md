@@ -4,6 +4,8 @@ Currently only supports Debian Stretch.
 
 ## How to use
 
+1. Clone submodules: `git submodule init && git submodule update`.
+
 1. Create a new profile for Gnome Terminal named "Pablo". It will receive the
   Dracula color scheme. This is because the installer apparently can't apply
   these to the defaul profile, or create a profile itself.
