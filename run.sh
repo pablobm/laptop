@@ -29,6 +29,7 @@ LAPTOP_DIR=$(dirname "$LAPTOP_RUNNER")
 CONFIGS_DIR="$LAPTOP_DIR"/configs
 HOME_BIN="$HOME/bin"
 DOWNLOADS_DIR="$HOME/Downloads"
+WHOAMI="$(whoami)"
 
 if ! command -v sudo >/dev/null; then
 	echo 'FATAL: Please install sudo before running this script.'
@@ -53,6 +54,7 @@ sudo apt install -y curl
 sudo apt install -y pass
 sudo apt install -y silversearcher-ag
 sudo apt install -y shellcheck
+sudo apt install -y zsh
 sudo apt autoremove
 
 # Used by GnuPG to display pictures linked to keys.
@@ -73,3 +75,9 @@ fi
 
 link_config "dot.gitconfig" ".gitconfig"
 link_config "dot.config/nvim" ".config/nvim"
+link_config "dot.zshrc" ".zshrc"
+
+if [ "$SHELL" != "/usr/bin/zsh" ]; then
+  sudo chsh -s /usr/bin/zsh "$WHOAMI"
+  zsh
+fi
