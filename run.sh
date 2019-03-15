@@ -97,6 +97,7 @@ link_config "dot.config/nvim" ".config/nvim"
 # Zsh and friends
 link_config "dot.zshrc" ".zshrc"
 link_repo "oh-my-zsh" ".oh-my-zsh"
+link_repo "zsh-syntax-highlighting" ".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
 if [ "$SHELL" != "/usr/bin/zsh" ]; then
   sudo chsh -s /usr/bin/zsh "$WHOAMI"
   zsh
