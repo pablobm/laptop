@@ -4,6 +4,5 @@ Currently only supports Debian Stretch.
 
 ## How to use
 
-```
-sh ./install.sh
-```
+1. Clone submodules: `git submodule init && git submodule update`.
+1. Run the installer: `sh ./install.sh`.

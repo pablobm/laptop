@@ -1,12 +1,9 @@
 #!/usr/bin/env sh
 
-link_config()
+link_item()
 {
-	SRC_RELPATH="$1"
-	DST_RELPATH="$2"
-
-	SRC_PATH="$CONFIGS_DIR/$SRC_RELPATH"
-	DST_PATH="$HOME/$DST_RELPATH"
+	SRC_PATH="$1"
+	DST_PATH="$2"
 
 	if [ -L "$DST_PATH" ] && [ "$(realpath "$DST_PATH")" = "$(realpath "$SRC_PATH")" ]; then
 		echo "SKIP: $DST_PATH <- $SRC_PATH"
@@ -24,9 +21,26 @@ link_config()
 	fi
 }
 
+link_config()
+{
+	SRC_RELPATH="$1"
+	DST_RELPATH="$2"
+
+	link_item "$CONFIGS_DIR/$SRC_RELPATH" "$HOME/$DST_RELPATH"
+}
+
+link_repo()
+{
+	SRC_RELPATH="$1"
+	DST_RELPATH="$2"
+
+	link_item "$REPOS_DIR/$SRC_RELPATH" "$HOME/$DST_RELPATH"
+}
+
 LAPTOP_RUNNER=$(readlink -f "$0")
 LAPTOP_DIR=$(dirname "$LAPTOP_RUNNER")
 CONFIGS_DIR="$LAPTOP_DIR"/configs
+REPOS_DIR="$LAPTOP_DIR"/repos
 HOME_BIN="$HOME/bin"
 DOWNLOADS_DIR="$HOME/Downloads"
 WHOAMI="$(whoami)"
@@ -75,8 +89,10 @@ fi
 
 link_config "dot.gitconfig" ".gitconfig"
 link_config "dot.config/nvim" ".config/nvim"
-link_config "dot.zshrc" ".zshrc"
 
+# Zsh and friends
+link_config "dot.zshrc" ".zshrc"
+link_repo "oh-my-zsh" ".oh-my-zsh"
 if [ "$SHELL" != "/usr/bin/zsh" ]; then
   sudo chsh -s /usr/bin/zsh "$WHOAMI"
   zsh
