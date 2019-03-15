@@ -1,3 +1,6 @@
 [submodule "repos/oh-my-zsh"]
 	path = repos/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "repos/dracula-gnome-terminal"]
+	path = repos/dracula-gnome-terminal
+	url = https://github.com/dracula/gnome-terminal

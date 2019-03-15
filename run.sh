@@ -90,6 +90,10 @@ fi
 link_config "dot.gitconfig" ".gitconfig"
 link_config "dot.config/nvim" ".config/nvim"
 
+# Dracula theme for Gnome Terminal
+# Requires a pre-existing terminal profile called "pablobm"
+"$REPOS_DIR/dracula-gnome-terminal/install.sh" -s Dracula -p pablobm --skip-dircolors
+
 # Zsh and friends
 link_config "dot.zshrc" ".zshrc"
 link_repo "oh-my-zsh" ".oh-my-zsh"
