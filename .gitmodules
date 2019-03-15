@@ -7,3 +7,6 @@
 [submodule "repos/zsh-syntax-highlighting"]
 	path = repos/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "repos/asdf"]
+	path = repos/asdf
+	url = https://github.com/asdf-vm/asdf.git

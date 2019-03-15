@@ -79,6 +79,9 @@ sudo apt install -y xloadimage
 # Required by apt-key and asdf.
 sudo apt install -y dirmngr
 
+# Required to compile Ruby
+sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev
+
 # Stretch package for Neovim is old and incompatible with
 # current minpac at the time of writing.
 # Installing static binary instead
@@ -93,6 +96,11 @@ link_config "dot.config/nvim" ".config/nvim"
 # Dracula theme for Gnome Terminal
 # Requires a pre-existing terminal profile called "pablobm"
 "$REPOS_DIR/dracula-gnome-terminal/install.sh" -s Dracula -p pablobm --skip-dircolors
+
+# Ensure latest stable release of asdf
+link_repo "asdf" ".asdf"
+cd "$HOME/.asdf" && git checkout "$(git describe --abbrev=0 --tags)" > /dev/null
+
 
 # Zsh and friends
 link_config "dot.zshrc" ".zshrc"
