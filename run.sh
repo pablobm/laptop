@@ -65,7 +65,6 @@ sudo apt install -y git
 sudo apt install -y gitg
 sudo apt install -y tig
 sudo apt install -y curl
-sudo apt install -y pass
 sudo apt install -y silversearcher-ag
 sudo apt install -y shellcheck
 sudo apt install -y zsh
@@ -81,6 +80,11 @@ sudo apt install -y dirmngr
 
 # Required to compile Ruby
 sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev
+
+# As of Debian Stretch, pass is at version 1.6.*,
+# which doesn't support extensions.
+# Install something more up to date.
+cd "$REPOS_DIR/password-store" && sudo make install
 
 # Stretch package for Neovim is old and incompatible with
 # current minpac at the time of writing.
