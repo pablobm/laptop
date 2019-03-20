@@ -68,7 +68,6 @@ sudo apt install -y curl
 sudo apt install -y silversearcher-ag
 sudo apt install -y shellcheck
 sudo apt install -y zsh
-sudo apt autoremove
 
 # Used by GnuPG to display pictures linked to keys.
 # Recommended but not required.
@@ -83,6 +82,8 @@ sudo apt install -y libssl-dev libreadline-dev zlib1g-dev
 
 # Required for pass-otp
 sudo apt install -y oathtool xclip tree
+
+sudo apt autoremove
 
 # As of Debian Stretch, pass is at version 1.6.*,
 # which doesn't support extensions.
