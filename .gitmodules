@@ -13,3 +13,6 @@
 [submodule "repos/password-store"]
 	path = repos/password-store
 	url = https://git.zx2c4.com/password-store/
+[submodule "repos/pass-otp"]
+	path = repos/pass-otp
+	url = https://github.com/tadfisher/pass-otp.git
