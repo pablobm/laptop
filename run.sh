@@ -79,7 +79,7 @@ sudo apt install -y xloadimage
 sudo apt install -y dirmngr
 
 # Required to compile Ruby
-sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev
+sudo apt install -y libssl-dev libreadline-dev zlib1g-dev
 
 # Required for pass-otp
 sudo apt install -y oathtool xclip tree
