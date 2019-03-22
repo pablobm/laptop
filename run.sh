@@ -69,6 +69,8 @@ sudo apt install -y silversearcher-ag
 sudo apt install -y shellcheck
 sudo apt install -y zsh
 sudo apt install -y g++
+sudo apt install -y postgresql
+sudo apt install -y postgresql-dev-all
 
 # Used by GnuPG to display pictures linked to keys.
 # Recommended but not required.
@@ -85,6 +87,9 @@ sudo apt install -y libssl-dev libreadline-dev zlib1g-dev
 sudo apt install -y oathtool xclip tree
 
 sudo apt autoremove
+
+# Get your user up and running with Postgres
+sudo -u postgres createuser --superuser "$WHOAMI"
 
 # As of Debian Stretch, pass is at version 1.6.*,
 # which doesn't support extensions.
