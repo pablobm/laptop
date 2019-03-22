@@ -68,6 +68,7 @@ sudo apt install -y curl
 sudo apt install -y silversearcher-ag
 sudo apt install -y shellcheck
 sudo apt install -y zsh
+sudo apt install -y g++
 
 # Used by GnuPG to display pictures linked to keys.
 # Recommended but not required.
