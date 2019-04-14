@@ -42,7 +42,7 @@ LAPTOP_DIR=$(dirname "$LAPTOP_RUNNER")
 CONFIGS_DIR="$LAPTOP_DIR"/configs
 REPOS_DIR="$LAPTOP_DIR"/repos
 HOME_BIN="$HOME/bin"
-DOWNLOADS_DIR="$HOME/Downloads"
+APPIMAGES_DIR="$HOME_BIN/appimages"
 WHOAMI="$(whoami)"
 
 if [ "$WHOAMI" = "root" ]; then
@@ -62,6 +62,7 @@ if ! sudo -v 2>/dev/null; then
 fi
 
 mkdir -p "$HOME_BIN"
+mkdir -p "$APPIMAGES_DIR"
 
 sudo apt update
 sudo apt upgrade -y
@@ -106,8 +107,9 @@ cd "$REPOS_DIR/pass-otp" && sudo make install
 # current minpac at the time of writing.
 # Installing static binary instead
 NEOVIM_BIN="$HOME_BIN/nvim"
+NEOVIM_APPIMAGE_PATH="$APPIMAGES_DIR/nvim.appimage"
 if [ ! -f "$NEOVIM_BIN" ]; then
-	cd "$DOWNLOADS_DIR" && curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage && chmod u+x nvim.appimage && mv ./nvim.appimage "$NEOVIM_BIN"
+	curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage --output "$NEOVIM_APPIMAGE_PATH" && chmod u+x "$NEOVIM_APPIMAGE_PATH" && ln -s "$NEOVIM_APPIMAGE_PATH" "$NEOVIM_BIN"
 fi
 
 link_config "dot.gitconfig" ".gitconfig"
