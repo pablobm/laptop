@@ -8,7 +8,7 @@ Currently only supports Debian Stretch.
 1. Create a new profile for Gnome Terminal named "pablobm". It will receive the
    Dracula color scheme. This is because the installer apparently can't apply
    these to the default profile, or create a new profile itself.
-1. Run the installer: `sh ./install.sh`.
+1. Run the installer: `sh ./run.sh`.
 
 ## TODO
 
