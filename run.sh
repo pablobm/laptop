@@ -45,6 +45,11 @@ HOME_BIN="$HOME/bin"
 DOWNLOADS_DIR="$HOME/Downloads"
 WHOAMI="$(whoami)"
 
+if [ "$WHOAMI" = "root" ]; then
+	echo 'FATAL: Do not run this script as root or with sudo.'
+	exit 1
+fi
+
 if ! command -v sudo >/dev/null; then
 	echo 'FATAL: Please install sudo before running this script.'
 	exit 1
