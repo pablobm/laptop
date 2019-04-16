@@ -3,8 +3,9 @@
   email = pablo@pablobm.com
 
 [core]
-  pager = cat
+  editor = nvim
   excludesfile = ~/.git.global_ignores
+  pager = cat
   trustctime = false # See http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
 
 [color]
