@@ -65,6 +65,7 @@ ZSH_THEME="robbyrussell"
 plugins=(
   asdf
   git
+  pass
 
   # Must go last
   zsh-syntax-highlighting
