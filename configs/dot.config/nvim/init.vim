@@ -17,7 +17,7 @@ call minpac#add('elmcast/elm-vim')
 call minpac#add('kien/ctrlp.vim')
 call minpac#add('leafgarland/typescript-vim')
 call minpac#add('mustache/vim-mustache-handlebars')
-call minpac#add('dracula/vim', {'name':'dracula'})
+call minpac#add('dracula/vim', {'name':'dracula-theme'})
 call minpac#add('rking/ag.vim')
 call minpac#add('scrooloose/nerdcommenter')
 call minpac#add('scrooloose/nerdtree')
@@ -34,11 +34,6 @@ call minpac#add('wting/rust.vim')
 command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update('', {'do': 'call minpac#status()'})
 command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
 command! PackStatus packadd minpac | source $MYVIMRC | call minpac#status()
-
-"
-" Airline
-"
-let g:airline_theme='dracula'
 
 "
 " Ale
@@ -77,8 +72,8 @@ map <leader>/ <plug>NERDCommenterToggle<CR>
 " Misc
 "
 
-syntax enable
-color dracula
+packadd! dracula-theme
+colorscheme dracula
 
 " Allow backspace at start of insert http://blog.sanctum.geek.nz/vim-annoyances/
 set backspace=indent,eol,start
