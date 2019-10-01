@@ -114,6 +114,7 @@ fi
 
 link_config "dot.gitconfig" ".gitconfig"
 link_config "dot.config/nvim" ".config/nvim"
+link_config "dot.gemrc" ".gemrc"
 
 # Dracula theme for Gnome Terminal
 # Requires a pre-existing terminal profile called "pablobm"
