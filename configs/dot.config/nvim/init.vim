@@ -30,6 +30,8 @@ call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('vim-scripts/spacehi.vim')
 call minpac#add('wting/rust.vim')
+call minpac#add('kassio/neoterm')
+call minpac#add('janko-m/vim-test')
 
 command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update('', {'do': 'call minpac#status()'})
 command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
@@ -62,6 +64,20 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 " Additionally, it will also ignore files listed in `wildignore`
+
+"
+" Neoterm + vim-test
+"
+let g:neoterm_default_mod='vertical'
+"let g:neoterm_size=50
+"let g:neoterm_fixedsize=50
+let g:neoterm_autoscroll=1
+
+let test#strategy = "neoterm"
+nnoremap <silent> <Leader>a :TestSuite<cr>
+nnoremap <silent> <Leader>c :TestNearest<cr>
+nnoremap <silent> <Leader>f :TestFile<cr>
+nnoremap <silent> <Leader><Leader> :TestLast<cr>
 
 "
 " NERDTree
