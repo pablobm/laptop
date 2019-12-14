@@ -16,3 +16,6 @@
 [submodule "repos/pass-otp"]
 	path = repos/pass-otp
 	url = https://github.com/tadfisher/pass-otp.git
+[submodule "repos/minpac"]
+	path = repos/minpac
+	url = https://github.com/k-takata/minpac.git

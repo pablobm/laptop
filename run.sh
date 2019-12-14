@@ -17,6 +17,7 @@ link_item()
 			esac
 		done
 	else
+		mkdir -p "$(dirname "$DST_PATH")"
 		ln -s "$SRC_PATH" "$DST_PATH"
 	fi
 }
@@ -111,6 +112,8 @@ NEOVIM_APPIMAGE_PATH="$APPIMAGES_DIR/nvim.appimage"
 if [ ! -f "$NEOVIM_BIN" ]; then
 	curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage --output "$NEOVIM_APPIMAGE_PATH" && chmod u+x "$NEOVIM_APPIMAGE_PATH" && ln -s "$NEOVIM_APPIMAGE_PATH" "$NEOVIM_BIN"
 fi
+
+link_repo "minpac" ".config/nvim/pack/minpac/opt/minpac"
 
 link_config "dot.gitconfig" ".gitconfig"
 link_config "dot.config/nvim" ".config/nvim"
