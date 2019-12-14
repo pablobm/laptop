@@ -76,6 +76,8 @@ sudo apt install -y silversearcher-ag
 sudo apt install -y shellcheck
 sudo apt install -y zsh
 sudo apt install -y g++
+sudo apt install -y automake
+sudo apt install -y autoconf
 sudo apt install -y postgresql
 sudo apt install -y postgresql-server-dev-all
 
