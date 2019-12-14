@@ -1,6 +1,6 @@
 # pablobm's laptop setup script
 
-Currently only supports Debian Stretch.
+Only tested with Debian Buster.
 
 ## How to use
 

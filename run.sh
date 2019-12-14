@@ -93,7 +93,7 @@ sudo apt install -y dirmngr
 sudo apt install -y libssl-dev libreadline-dev zlib1g-dev
 
 # Required for pass-otp
-sudo apt install -y oathtool xclip tree
+sudo apt install -y oathtool wl-clipboard tree
 
 sudo apt autoremove
 
