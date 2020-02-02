@@ -52,6 +52,7 @@ let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'typescript': ['prettier'],
 \   'python': ['autopep8'],
+\   'elixir': ['mix_format'],
 \}
 
 "
