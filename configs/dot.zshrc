@@ -113,3 +113,4 @@ export EDITOR="nvim"
 
 # My aliases
 alias be="bundle exec"
+alias oo="xdg-open"
