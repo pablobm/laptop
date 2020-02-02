@@ -107,6 +107,11 @@ source $ZSH/oh-my-zsh.sh
 # Pablo's custom stuff
 #
 
+# Separate histories for different sessions
+HISTDIR="$HOME/.zsh_history"
+mkdir -p "$HISTDIR"
+export HISTFILE="$HISTDIR/$$"
+
 # My programs
 export PATH="$HOME/bin:$PATH"
 export EDITOR="nvim"
