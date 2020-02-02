@@ -107,6 +107,9 @@ source $ZSH/oh-my-zsh.sh
 # Pablo's custom stuff
 #
 
+# My programs
 export PATH="$HOME/bin:$PATH"
-alias be="bundle exec"
 export EDITOR="nvim"
+
+# My aliases
+alias be="bundle exec"
