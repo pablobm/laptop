@@ -47,13 +47,15 @@ let g:ale_linters = {
 \   'typescript': ['tslint'],
 \   'ruby': ['rubocop'],
 \}
-let g:ale_fix_on_save=1
+
+"let g:ale_fix_on_save=1
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'typescript': ['prettier'],
 \   'python': ['autopep8'],
 \   'elixir': ['mix_format'],
 \}
+command! Fix ALEFix
 
 "
 " CtrlP
