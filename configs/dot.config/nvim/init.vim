@@ -54,6 +54,7 @@ let g:ale_fixers = {
 \   'typescript': ['prettier'],
 \   'python': ['autopep8'],
 \   'elixir': ['mix_format'],
+\   'ruby': ['rubocop'],
 \}
 command! Fix ALEFix
 
