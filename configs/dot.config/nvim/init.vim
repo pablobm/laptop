@@ -157,3 +157,6 @@ let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'ruby', 'javascr
 
 " Terminal
 autocmd TermOpen * setlocal scrollback=100000
+
+" Show 80-char column mark
+set colorcolumn=80
