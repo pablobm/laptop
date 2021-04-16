@@ -41,22 +41,23 @@ command! PackStatus packadd minpac | source $MYVIMRC | call minpac#status()
 " Ale
 "
 let g:ale_lint_on_text_changed='never'
-let g:ale_lint_on_text_changed=1
+"let g:ale_lint_on_text_changed=1
+let g:ale_lint_on_save=1
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'typescript': ['tslint'],
 \   'ruby': ['rubocop'],
 \   'shell': ['shellcheck'],
+\   'typescript': ['tslint'],
 \}
 
 "let g:ale_fix_on_save=1
 let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'typescript': ['prettier'],
-\   'python': ['autopep8'],
 \   'elixir': ['mix_format'],
+\   'javascript': ['prettier'],
+\   'python': ['autopep8'],
 \   'ruby': ['rubocop'],
 \   'shell': ['shellcheck'],
+\   'typescript': ['prettier'],
 \}
 command! Fix ALEFix
 
