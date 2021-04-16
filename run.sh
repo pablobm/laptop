@@ -120,6 +120,7 @@ link_repo "minpac" ".config/nvim/pack/minpac/opt/minpac"
 link_config "dot.gitconfig" ".gitconfig"
 link_config "dot.config/nvim" ".config/nvim"
 link_config "dot.gemrc" ".gemrc"
+link_config "Sublime Text 3" ".config/sublime-text-3"
 
 # Dracula theme for Gnome Terminal
 # Requires a pre-existing terminal profile called "pablobm"
