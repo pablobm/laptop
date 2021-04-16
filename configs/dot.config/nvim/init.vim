@@ -31,7 +31,7 @@ call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('vim-scripts/spacehi.vim')
 call minpac#add('wting/rust.vim')
 call minpac#add('kassio/neoterm')
-call minpac#add('janko-m/vim-test')
+call minpac#add('vim-test/vim-test')
 
 command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update('', {'do': 'call minpac#status()'})
 command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
