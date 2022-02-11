@@ -38,64 +38,51 @@ link_repo()
 	link_item "$REPOS_DIR/$SRC_RELPATH" "$HOME/$DST_RELPATH"
 }
 
-LAPTOP_RUNNER=$(readlink -f "$0")
+detect_os()
+{
+	if [ "$(uname -s)" = "Darwin" ]; then
+		echo "macos"
+	else
+		echo "linux"
+	fi
+}
+
+current_script_path()
+{
+	if [ "$CURRENT_OS" = "macos" ]; then
+		echo "$*"
+	else
+		readlink -f "$*"
+	fi
+}
+
+load_platform_specific_module()
+{
+	MODULE_NAME="$1"
+
+	MODULE_PATH="$LAPTOP_DIR/modules/$MODULE_NAME.$CURRENT_OS.sh"
+	if [ -f "$MODULE_PATH" ]; then
+		sh "$MODULE_PATH"
+	fi
+}
+
+
+CURRENT_OS="$(detect_os)"
+
+LAPTOP_RUNNER=$(current_script_path "$0")
 LAPTOP_DIR=$(dirname "$LAPTOP_RUNNER")
 CONFIGS_DIR="$LAPTOP_DIR"/configs
 REPOS_DIR="$LAPTOP_DIR"/repos
 HOME_BIN="$HOME/bin"
-APPIMAGES_DIR="$HOME_BIN/appimages"
 WHOAMI="$(whoami)"
 
-if [ "$WHOAMI" = "root" ]; then
-	echo 'FATAL: Do not run this script as root or with sudo.'
-	exit 1
-fi
-
-if ! command -v sudo >/dev/null; then
-	echo 'FATAL: Please install sudo before running this script.'
-	exit 1
-fi
-
-if ! sudo -v 2>/dev/null; then
-	echo 'FATAL: Please enable the current user to use sudo.'
-	echo "TIP: Try with \`usermod -a -G sudo $(whoami)\` as root. Then you'll have to log out and back in or somethink like that..."
-	exit 1
-fi
-
 mkdir -p "$HOME_BIN"
-mkdir -p "$APPIMAGES_DIR"
 
-sudo apt update
-sudo apt upgrade -y
+load_platform_specific_module "before-packages"
+load_platform_specific_module "packages"
 
-sudo apt install -y git
-sudo apt install -y gitg
-sudo apt install -y tig
-sudo apt install -y curl
-sudo apt install -y silversearcher-ag
-sudo apt install -y shellcheck
-sudo apt install -y zsh
-sudo apt install -y g++
-sudo apt install -y automake
-sudo apt install -y autoconf
-sudo apt install -y postgresql
-sudo apt install -y postgresql-server-dev-all
-
-# Used by GnuPG to display pictures linked to keys.
-# Recommended but not required.
-sudo apt install -y xloadimage
-
-# Used to interact with keyservers.
-# Required by apt-key and asdf.
-sudo apt install -y dirmngr
-
-# Required to compile Ruby
-sudo apt install -y libssl-dev libreadline-dev zlib1g-dev
-
-# Required for pass-otp
-sudo apt install -y oathtool wl-clipboard tree
-
-sudo apt autoremove
+echo "GOT THIS FAR"
+exit 0
 
 # Get your user up and running with Postgres
 sudo -u postgres createuser --superuser "$WHOAMI"
