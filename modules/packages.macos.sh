@@ -6,3 +6,15 @@ brew update
 brew install git
 brew install the_silver_searcher
 brew install shellcheck
+brew install zsh
+brew install nvim
+brew install postgresql
+brew install direnv
+brew install mpv
+brew install ctags
+
+# Needed for mimemagic Ruby gem
+brew install shared-mime-info
+
+# Needed for pass-otp
+brew install oath-toolkit

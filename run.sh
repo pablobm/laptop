@@ -47,15 +47,6 @@ detect_os()
 	fi
 }
 
-current_script_path()
-{
-	if [ "$CURRENT_OS" = "macos" ]; then
-		echo "$*"
-	else
-		readlink -f "$*"
-	fi
-}
-
 load_platform_specific_module()
 {
 	MODULE_NAME="$1"
@@ -66,10 +57,17 @@ load_platform_specific_module()
 	fi
 }
 
-
 CURRENT_OS="$(detect_os)"
 
-LAPTOP_RUNNER=$(current_script_path "$0")
+if [ "$CURRENT_OS" = "macos" ]; then
+	if [ -z "$(command -v realpath)" ]; then
+    # shellcheck disable=2016
+		echo 'FATAL: Please install realpath with `brew install coreutils` before running this script.'
+		exit 1
+	fi
+fi
+
+LAPTOP_RUNNER=$(realpath "$0")
 LAPTOP_DIR=$(dirname "$LAPTOP_RUNNER")
 CONFIGS_DIR="$LAPTOP_DIR"/configs
 REPOS_DIR="$LAPTOP_DIR"/repos
@@ -80,49 +78,33 @@ mkdir -p "$HOME_BIN"
 
 load_platform_specific_module "before-packages"
 load_platform_specific_module "packages"
-
-echo "GOT THIS FAR"
-exit 0
-
-# Get your user up and running with Postgres
-sudo -u postgres createuser --superuser "$WHOAMI"
-
-# As of Debian Stretch, pass is at version 1.6.*,
-# which doesn't support extensions.
-# Install something more up to date.
-cd "$REPOS_DIR/password-store" && sudo make install
-cd "$REPOS_DIR/pass-otp" && sudo make install
-
-# Stretch package for Neovim is old and incompatible with
-# current minpac at the time of writing.
-# Installing static binary instead
-NEOVIM_BIN="$HOME_BIN/nvim"
-NEOVIM_APPIMAGE_PATH="$APPIMAGES_DIR/nvim.appimage"
-if [ ! -f "$NEOVIM_BIN" ]; then
-	curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage --output "$NEOVIM_APPIMAGE_PATH" && chmod u+x "$NEOVIM_APPIMAGE_PATH" && ln -s "$NEOVIM_APPIMAGE_PATH" "$NEOVIM_BIN"
-fi
-
-link_repo "minpac" ".config/nvim/pack/minpac/opt/minpac"
+load_platform_specific_module "after-packages"
 
 link_config "dot.gitconfig" ".gitconfig"
 link_config "dot.config/nvim" ".config/nvim"
 link_config "dot.gemrc" ".gemrc"
 link_config "Sublime Text 3" ".config/sublime-text-3"
 
-# Dracula theme for Gnome Terminal
-# Requires a pre-existing terminal profile called "pablobm"
-"$REPOS_DIR/dracula-gnome-terminal/install.sh" -s Dracula -p pablobm --skip-dircolors
+link_repo "minpac" ".config/nvim/pack/minpac/opt/minpac"
 
 # Ensure latest stable release of asdf
 link_repo "asdf" ".asdf"
 cd "$HOME/.asdf" && git checkout "$(git describe --abbrev=0 --tags)" > /dev/null
 
-
 # Zsh and friends
 link_config "dot.zshrc" ".zshrc"
 link_repo "oh-my-zsh" ".oh-my-zsh"
 link_repo "zsh-syntax-highlighting" ".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
-if [ "$SHELL" != "/usr/bin/zsh" ]; then
+
+export PASSWORD_STORE_EXTENSIONS_DIR="$HOME/.password-store/.extensions"
+mkdir -p "$PASSWORD_STORE_EXTENSIONS_DIR"
+link_item "$REPOS_DIR/pass-otp/otp.bash" "$PASSWORD_STORE_EXTENSIONS_DIR"
+
+if [ "$SHELL" != "/usr/bin/zsh" && -e "/usr/bin/zsh"]; then
   sudo chsh -s /usr/bin/zsh "$WHOAMI"
+  zsh
+fi
+if [ "$SHELL" != "/bin/zsh" && -e "/bin/zsh"]; then
+  sudo chsh -s /bin/zsh "$WHOAMI"
   zsh
 fi

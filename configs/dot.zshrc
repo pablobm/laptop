@@ -66,6 +66,7 @@ plugins=(
   asdf
   git
   pass
+  z
 
   # Must go last
   zsh-syntax-highlighting
@@ -112,6 +113,9 @@ HISTDIR="$HOME/.zsh_history"
 mkdir -p "$HISTDIR"
 export HISTFILE="$HISTDIR/$$"
 
+# Hook direnv into shell
+eval "$(direnv hook zsh)"
+
 # My programs
 export PATH="$HOME/bin:$PATH"
 export EDITOR="nvim"
@@ -119,3 +123,6 @@ export EDITOR="nvim"
 # My aliases
 alias be="bundle exec"
 alias oo="xdg-open"
+
+# pass
+export PASSWORD_STORE_ENABLE_EXTENSIONS=true
