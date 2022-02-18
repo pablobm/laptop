@@ -45,7 +45,7 @@ let g:ale_lint_on_text_changed='never'
 let g:ale_lint_on_save=1
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'ruby': ['rubocop'],
+\   'ruby': ['standardrb'],
 \   'shell': ['shellcheck'],
 \   'typescript': ['tslint'],
 \}
@@ -55,7 +55,7 @@ let g:ale_fixers = {
 \   'elixir': ['mix_format'],
 \   'javascript': ['prettier'],
 \   'python': ['autopep8'],
-\   'ruby': ['rubocop'],
+\   'ruby': ['standardrb'],
 \   'shell': ['shellcheck'],
 \   'typescript': ['prettier'],
 \}
