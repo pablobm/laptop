@@ -48,6 +48,7 @@ let g:ale_linters = {
 \   'ruby': ['standardrb'],
 \   'shell': ['shellcheck'],
 \   'typescript': ['tslint'],
+\   'erb': ['erblint'],
 \}
 
 "let g:ale_fix_on_save=1
@@ -58,6 +59,7 @@ let g:ale_fixers = {
 \   'ruby': ['standardrb'],
 \   'shell': ['shellcheck'],
 \   'typescript': ['prettier'],
+\   'erb': ['erblint'],
 \}
 command! Fix ALEFix
 
