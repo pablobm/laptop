@@ -80,6 +80,7 @@ sudo apt install -y automake
 sudo apt install -y autoconf
 sudo apt install -y postgresql
 sudo apt install -y postgresql-server-dev-all
+sudo apt install -y direnv
 
 # Used by GnuPG to display pictures linked to keys.
 # Recommended but not required.
