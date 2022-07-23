@@ -66,6 +66,7 @@ plugins=(
   asdf
   git
   pass
+  z
 
   # Must go last
   zsh-syntax-highlighting
