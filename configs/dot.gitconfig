@@ -16,6 +16,9 @@
 [push]
   default = current
 
+[pull]
+	rebase = true
+
 [include]
   path = ~/.git.local
 
