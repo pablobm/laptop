@@ -108,6 +108,15 @@ source $ZSH/oh-my-zsh.sh
 # Pablo's custom stuff
 #
 
+detect_os()
+{
+	if [ "$(uname -s)" = "Darwin" ]; then
+		echo "macos"
+	else
+		echo "linux"
+	fi
+}
+
 # Separate histories for different sessions
 HISTDIR="$HOME/.zsh_history"
 mkdir -p "$HISTDIR"
@@ -123,3 +132,9 @@ alias oo="xdg-open"
 
 # direnv
 eval "$(direnv hook zsh)"
+
+# ctags
+if [[ `detect_os` == "macos" ]]; then
+  alias ctags="`brew --prefix`/bin/ctags"
+fi
+
