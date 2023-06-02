@@ -133,6 +133,9 @@ alias oo="xdg-open"
 # direnv
 eval "$(direnv hook zsh)"
 
+# pass
+export PASSWORD_STORE_ENABLE_EXTENSIONS=true
+
 # ctags
 if [[ `detect_os` == "macos" ]]; then
   alias ctags="`brew --prefix`/bin/ctags"

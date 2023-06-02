@@ -97,6 +97,9 @@ link_config "dot.zshrc" ".zshrc"
 link_repo "oh-my-zsh" ".oh-my-zsh"
 link_repo "zsh-syntax-highlighting" ".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
 
+export PASSWORD_STORE_EXTENSIONS_DIR="$HOME/.password-store/.extensions"
+mkdir -p "$PASSWORD_STORE_EXTENSIONS_DIR"
+link_item "$REPOS_DIR/pass-otp/otp.bash" "$PASSWORD_STORE_EXTENSIONS_DIR"
 
 if [ "$SHELL" != "/usr/bin/zsh" && -e "/usr/bin/zsh"]; then
   sudo chsh -s /usr/bin/zsh "$WHOAMI"
