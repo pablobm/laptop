@@ -8,7 +8,6 @@ brew install the_silver_searcher
 brew install shellcheck
 brew install zsh
 brew install nvim
-brew install postgresql
 brew install direnv
 brew install mpv
 brew install ctags
