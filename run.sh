@@ -83,6 +83,7 @@ load_platform_specific_module "after-packages"
 link_config "dot.gitconfig" ".gitconfig"
 link_config "dot.config/nvim" ".config/nvim"
 link_config "dot.gemrc" ".gemrc"
+link_config "dot.ctags" ".ctags"
 link_config "Sublime Text 3" ".config/sublime-text-3"
 
 link_repo "minpac" ".config/nvim/pack/minpac/opt/minpac"
