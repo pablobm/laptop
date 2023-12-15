@@ -141,3 +141,4 @@ if [[ `detect_os` == "macos" ]]; then
   alias ctags="`brew --prefix`/bin/ctags"
 fi
 
+export RUBYOPT='-r ~/.ruby-defaults.rb'
