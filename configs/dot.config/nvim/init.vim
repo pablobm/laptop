@@ -10,19 +10,17 @@ packadd minpac
 call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-call minpac#add('kien/ctrlp.vim')
+call minpac#add('ctrlpvim/ctrlp.vim')
 call minpac#add('dracula/vim', {'name': 'dracula-theme'})
 call minpac#add('rking/ag.vim')
 call minpac#add('scrooloose/nerdcommenter')
 call minpac#add('scrooloose/nerdtree')
 call minpac#add('dense-analysis/ale')
-call minpac#add('tpope/vim-bundler')
-call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-rails')
 call minpac#add('tpope/vim-sensible')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
-call minpac#add('vim-scripts/spacehi.vim')
+call minpac#add('vim-scripts/spacehi.vim') " Highlight trailing spaces
 call minpac#add('kassio/neoterm')
 call minpac#add('vim-test/vim-test')
 
