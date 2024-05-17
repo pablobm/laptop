@@ -101,11 +101,11 @@ export PASSWORD_STORE_EXTENSIONS_DIR="$HOME/.password-store/.extensions"
 mkdir -p "$PASSWORD_STORE_EXTENSIONS_DIR"
 link_item "$REPOS_DIR/pass-otp/otp.bash" "$PASSWORD_STORE_EXTENSIONS_DIR"
 
-if [ "$SHELL" != "/usr/bin/zsh" && -e "/usr/bin/zsh"]; then
+if [ "$SHELL" != "/usr/bin/zsh" ] && [ -e "/usr/bin/zsh" ]; then
   sudo chsh -s /usr/bin/zsh "$WHOAMI"
   zsh
 fi
-if [ "$SHELL" != "/bin/zsh" && -e "/bin/zsh"]; then
+if [ "$SHELL" != "/bin/zsh" ] && [ -e "/bin/zsh" ]; then
   sudo chsh -s /bin/zsh "$WHOAMI"
   zsh
 fi
