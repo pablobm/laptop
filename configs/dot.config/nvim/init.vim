@@ -24,6 +24,7 @@ call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('vim-scripts/spacehi.vim') " Highlight trailing spaces
 call minpac#add('kassio/neoterm')
 call minpac#add('vim-test/vim-test')
+call minpac#add('tpope/vim-fugitive')
 
 command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update('', {'do': 'call minpac#status()'})
 command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
