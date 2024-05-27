@@ -10,7 +10,8 @@ packadd minpac
 call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-call minpac#add('ctrlpvim/ctrlp.vim')
+call minpac#add('nvim-lua/plenary.nvim')
+call minpac#add('nvim-telescope/telescope.nvim', {'rev': '0.1.x'})
 call minpac#add('dracula/vim', {'name': 'dracula-theme'})
 call minpac#add('rking/ag.vim')
 call minpac#add('scrooloose/nerdcommenter')
@@ -58,16 +59,9 @@ let g:ale_fixers = {
 command! Fix ALEFix
 
 "
-" CtrlP
+" Telescope
 "
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-let g:ctrlp_use_caching = 0
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn)|node_modules|bower_components)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
-" Additionally, it will also ignore files listed in `wildignore`
+:nmap <C-p> <cmd>lua require('telescope.builtin').find_files()<CR>
 
 "
 " Neoterm + vim-test
