@@ -36,6 +36,7 @@ let g:ale_lint_on_text_changed='never'
 "let g:ale_lint_on_text_changed=1
 let g:ale_lint_on_save=1
 let g:ale_linters = {
+\   'elixir': ['mix'],
 \   'javascript': ['prettier'],
 \   'ruby': ['standardrb'],
 \   'shell': ['shellcheck'],
