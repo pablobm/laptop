@@ -53,7 +53,8 @@ load_platform_specific_module()
 
 	MODULE_PATH="$LAPTOP_DIR/modules/$MODULE_NAME.$CURRENT_OS.sh"
 	if [ -f "$MODULE_PATH" ]; then
-		sh "$MODULE_PATH"
+		# shellcheck source=/dev/null
+		. "$MODULE_PATH"
 	fi
 }
 
