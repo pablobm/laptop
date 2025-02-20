@@ -42,8 +42,10 @@ cd "$REPOS_DIR/pass-otp" && sudo make install
 # current minpac at the time of writing.
 # Installing static binary instead
 NEOVIM_BIN="$HOME_BIN/nvim"
-NEOVIM_APPIMAGE_PATH="$APPIMAGES_DIR/nvim.appimage"
+NEOVIM_DOWNLOAD_URL="https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.appimage"
+NEOVIM_FILE_NAME=$(basename "$NEOVIM_DOWNLOAD_URL")
+NEOVIM_APPIMAGE_PATH="$APPIMAGES_DIR/$NEOVIM_FILE_NAME"
 if [ ! -f "$NEOVIM_BIN" ]; then
-	curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage --output "$NEOVIM_APPIMAGE_PATH" && chmod u+x "$NEOVIM_APPIMAGE_PATH" && ln -s "$NEOVIM_APPIMAGE_PATH" "$NEOVIM_BIN"
+	curl -L "$NEOVIM_DOWNLOAD_URL" --location --output "$NEOVIM_APPIMAGE_PATH" && chmod u+x "$NEOVIM_APPIMAGE_PATH" && ln -s "$NEOVIM_APPIMAGE_PATH" "$NEOVIM_BIN"
 fi
 
