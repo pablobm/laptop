@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-APPIMAGES_DIR="$HOME_BIN/appimages"
+APPIMAGES_DIR="$HOME/Applications"
 mkdir -p "$APPIMAGES_DIR"
 
 if [ "$WHOAMI" = "root" ]; then
