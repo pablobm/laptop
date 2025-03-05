@@ -141,4 +141,8 @@ if [[ `detect_os` == "macos" ]]; then
   alias ctags="`brew --prefix`/bin/ctags"
 fi
 
+# Personal Ruby utils
 export RUBYOPT='-r ~/.ruby-defaults.rb'
+
+# Rust. Perhaps added when installing `wr`?
+. "$HOME/.cargo/env"
