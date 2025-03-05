@@ -15,7 +15,6 @@ call minpac#add('nvim-telescope/telescope.nvim', {'rev': '0.1.x'})
 call minpac#add('dracula/vim', {'name': 'dracula-theme'})
 call minpac#add('rking/ag.vim')
 call minpac#add('scrooloose/nerdtree')
-call minpac#add('dense-analysis/ale')
 call minpac#add('tpope/vim-rails')
 call minpac#add('tpope/vim-sensible')
 call minpac#add('vim-airline/vim-airline')
@@ -24,42 +23,40 @@ call minpac#add('vim-scripts/spacehi.vim') " Highlight trailing spaces
 call minpac#add('kassio/neoterm')
 call minpac#add('vim-test/vim-test')
 call minpac#add('tpope/vim-fugitive')
+call minpac#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
+
+
+"
+" Adapted from https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/
+"
+call minpac#add('williamboman/mason.nvim')
+call minpac#add('williamboman/mason-lspconfig.nvim')
+call minpac#add('neovim/nvim-lspconfig')
+call minpac#add('simrat39/rust-tools.nvim')
+
+" Completion framework
+call minpac#add('hrsh7th/nvim-cmp')
+
+" LSP completion source:
+call minpac#add('hrsh7th/cmp-nvim-lsp')
+
+" Useful completion sources:
+call minpac#add('hrsh7th/cmp-nvim-lua')
+call minpac#add('hrsh7th/cmp-nvim-lsp-signature-help')
+call minpac#add('hrsh7th/cmp-vsnip')
+call minpac#add('hrsh7th/cmp-path')
+call minpac#add('hrsh7th/cmp-buffer')
+call minpac#add('hrsh7th/vim-vsnip')
+
+lua require("setup/mason")
+lua require("setup/rust-tools")
+lua require("setup/lsp-diagnostics")
+lua require("setup/completion")
+
 
 command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update('', {'do': 'call minpac#status()'})
 command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
 command! PackStatus packadd minpac | source $MYVIMRC | call minpac#status()
-
-"
-" Ale
-"
-let g:ale_lint_on_text_changed='never'
-"let g:ale_lint_on_text_changed=1
-let g:ale_lint_on_save=1
-let g:ale_linters = {
-\   'elixir': ['mix'],
-\   'javascript': ['prettier'],
-\   'ruby': ['standardrb'],
-\   'shell': ['shellcheck'],
-\   'typescript': ['tslint'],
-\   'erb': ['erblint'],
-\}
-"\   'ruby': ['rubocop'],
-"\   'ruby': ['standardrb'],
-
-"let g:ale_fix_on_save=1
-let g:ale_fixers = {
-\   'elixir': ['mix_format'],
-\   'javascript': ['prettier'],
-\   'python': ['autopep8'],
-\   'ruby': ['standardrb'],
-\   'shell': ['shellcheck'],
-\   'typescript': ['prettier'],
-\   'erb': ['erblint'],
-\}
-"\   'ruby': ['rubocop'],
-"\   'ruby': ['standardrb'],
-
-command! Fix ALEFix
 
 "
 " Telescope
