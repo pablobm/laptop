@@ -140,6 +140,12 @@ if [[ `detect_os` == "macos" ]]; then
   alias ctags="`brew --prefix`/bin/ctags"
 fi
 
+# asdf
+export ASDF_DATA_DIR="/home/pablobm/.asdf"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+# mkdir -p "${ASDF_DATA_DIR:-$HOME/.asdf}/completions"
+asdf completion zsh > "${ASDF_DATA_DIR:-$HOME/.asdf}/completions/_asdf"
+
 # Personal Ruby utils
 export RUBYOPT='-r ~/.ruby-defaults.rb'
 
