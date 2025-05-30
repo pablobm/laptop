@@ -141,7 +141,7 @@ if [[ `detect_os` == "macos" ]]; then
 fi
 
 # asdf
-export ASDF_DATA_DIR="/home/pablobm/.asdf"
+export ASDF_DATA_DIR="$HOME/.asdf"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 # mkdir -p "${ASDF_DATA_DIR:-$HOME/.asdf}/completions"
 asdf completion zsh > "${ASDF_DATA_DIR:-$HOME/.asdf}/completions/_asdf"
