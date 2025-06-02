@@ -151,3 +151,6 @@ export RUBYOPT='-r ~/.ruby-defaults.rb'
 
 # Rust. Perhaps added when installing `wr`?
 . "$HOME/.cargo/env"
+
+# Misc
+export ZSHZ_EXCLUDE_DIRS=("$HOME/Downloads")
