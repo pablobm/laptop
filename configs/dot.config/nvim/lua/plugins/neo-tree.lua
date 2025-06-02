@@ -14,6 +14,6 @@ return {
     -- fill any relevant options here
   },
   config = function()
-    vim.keymap.set('n', '<leader>t', ":Neotree toggle<CR>", { desc = "Open Neotree" })
+    vim.keymap.set('n', '<leader>t', ":Neotree reveal toggle<CR>", { desc = "Open Neotree" })
   end
 }
