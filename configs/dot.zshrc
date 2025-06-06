@@ -141,7 +141,7 @@ if [[ `detect_os` == "macos" ]]; then
 fi
 
 # asdf
-export ASDF_DATA_DIR="/home/pablobm/.asdf"
+export ASDF_DATA_DIR="$HOME/.asdf"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 # mkdir -p "${ASDF_DATA_DIR:-$HOME/.asdf}/completions"
 asdf completion zsh > "${ASDF_DATA_DIR:-$HOME/.asdf}/completions/_asdf"
@@ -151,3 +151,6 @@ export RUBYOPT='-r ~/.ruby-defaults.rb'
 
 # Rust. Perhaps added when installing `wr`?
 . "$HOME/.cargo/env"
+
+# Misc
+export ZSHZ_EXCLUDE_DIRS=("$HOME/Downloads")
