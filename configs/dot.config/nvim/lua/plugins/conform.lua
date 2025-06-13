@@ -9,7 +9,7 @@ return {
       -- and implement something like that `first` function to detect the yml
       ruby = { "standardrb" },
     },
-    format_on_save = {
+    format_after_save = {
       lsp_format = "fallback",
 
       -- Standardrb/Rubocop are slower than the recommended 500ms timeout
