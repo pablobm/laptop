@@ -12,12 +12,14 @@ return {
     -- Languages
     "jfpedroza/neotest-elixir",
     "olimorris/neotest-rspec",
+    "zidhuss/neotest-minitest",
   },
 
   config = function()
     require("neotest").setup({
       adapters = {
         require("neotest-elixir"),
+        require("neotest-minitest"),
         require("neotest-rspec"),
       }
     })
