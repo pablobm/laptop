@@ -35,3 +35,22 @@ function EnableRubocop()
 end
 
 vim.api.nvim_create_user_command('Rubocop', EnableRubocop, {})
+
+function EnableElixirLs()
+  vim.lsp.config(
+    'elixir-ls',
+    {
+      cmd = { vim.fs.joinpath(vim.fn.stdpath("data"), "mason", "bin", "elixir-ls") },
+      root_dir = vim.fs.dirname(
+        vim.fs.find(
+          {'.git', 'mix.exs'}, 
+          { upward = true }
+        )[1]
+      ),
+      filetypes = { 'elixir' }
+    }
+  )
+  vim.lsp.enable('elixir-ls')
+end
+
+vim.api.nvim_create_user_command('ElixirLs', EnableElixirLs, {})
