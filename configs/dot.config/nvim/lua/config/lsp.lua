@@ -1,3 +1,6 @@
+-- Always show LSP status column, to avoid expand-collapse
+vim.o.signcolumn = "yes"
+
 -- Manual enable of LSPs
 vim.api.nvim_create_user_command(
   "EnableLsp",
