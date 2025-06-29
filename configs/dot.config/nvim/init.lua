@@ -10,3 +10,4 @@ vim.o.expandtab = true
 -- lazy.vim
 require("config.lazy")
 require("config.lsp")
+require("config.cmp")
