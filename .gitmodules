@@ -1,9 +1,6 @@
 [submodule "repos/dracula-gnome-terminal"]
 	path = repos/dracula-gnome-terminal
 	url = https://github.com/dracula/gnome-terminal
-[submodule "repos/asdf"]
-	path = repos/asdf
-	url = https://github.com/asdf-vm/asdf.git
 [submodule "repos/password-store"]
 	path = repos/password-store
 	url = https://git.zx2c4.com/password-store/

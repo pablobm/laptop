@@ -20,7 +20,7 @@ sudo apt install -y direnv
 sudo apt install -y xloadimage
 
 # Used to interact with keyservers.
-# Required by apt-key and asdf.
+# Required by apt-key.
 sudo apt install -y dirmngr
 
 # Required to compile Ruby
