@@ -147,3 +147,6 @@ export RUBYOPT='-r ~/.ruby-defaults.rb'
 
 # Misc
 export ZSHZ_EXCLUDE_DIRS=("$HOME/Downloads")
+
+# Mise
+eval "$(mise activate zsh)"
