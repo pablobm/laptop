@@ -89,10 +89,6 @@ link_config "Sublime Text 3" ".config/sublime-text-3"
 
 link_repo "minpac" ".config/nvim/pack/minpac/opt/minpac"
 
-# Ensure latest stable release of asdf
-link_repo "asdf" ".asdf"
-cd "$HOME/.asdf" && git checkout "$(git describe --abbrev=0 --tags)" > /dev/null
-
 # Zsh and friends
 link_config "dot.zshrc" ".zshrc"
 link_repo "oh-my-zsh" ".oh-my-zsh"
