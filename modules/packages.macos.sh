@@ -6,7 +6,6 @@ brew update
 brew install git
 brew install the_silver_searcher
 brew install shellcheck
-brew install zsh
 brew install nvim
 brew install direnv
 brew install mpv
