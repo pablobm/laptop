@@ -14,6 +14,7 @@ brew install direnv
 brew install fish
 brew install zoxide
 brew install fzf # Needed for zoxide
+brew install mise
 
 # Needed for mimemagic Ruby gem
 brew install shared-mime-info
