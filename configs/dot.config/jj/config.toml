@@ -1,0 +1,12 @@
+[user]
+name = "Pablo Brasero"
+email = "pablo@pablobm.com"
+
+[[--scope]]
+--when.commands = ["status"]
+[--scope.ui]
+paginate = "never"
+
+[aliases]
+all = ["log", "-r", "all()"]
+tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
