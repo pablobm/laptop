@@ -41,9 +41,16 @@ PATH_TO_SOURCES_LIST_FOR_FISH="/etc/apt/sources.list.d/shells:fish:release:4.lis
 curl -fsSL "$BASE_URL_FOR_FISH/Release.key" | gpg --dearmor | sudo tee "$PATH_TO_KEYRING_FOR_FISH" > /dev/null
 echo "deb $BASE_URL_FOR_FISH /" | sudo tee "$PATH_TO_SOURCES_LIST_FOR_FISH"
 
-sudo apt update
+# TODO: make consistent with paths used for fish above
+PATH_TO_KEYRING_FOR_MISE=/etc/apt/keyrings/mise-archive-keyring.gpg
+BASE_URL_FOR_MISE=https://mise.jdx.dev
+PATH_TO_SOURCES_LIST_FOR_MISE=/etc/apt/sources.list.d/mise.list
+curl -fsSL "$BASE_URL_FOR_MISE/gpg-key.pub" | gpg --dearmor | sudo tee "$PATH_TO_KEYRING_FOR_MISE" 1> /dev/null
+echo "deb [signed-by=$PATH_TO_KEYRING_FOR_MISE arch=amd64] $BASE_URL_FOR_MISE/deb stable main" | sudo tee "$PATH_TO_SOURCES_LIST_FOR_MISE"
 
+sudo apt update
 sudo apt install -y fish
+sudo apt install -y mise
 
 sudo apt autoremove
 
@@ -63,4 +70,3 @@ NEOVIM_APPIMAGE_PATH="$APPIMAGES_DIR/$NEOVIM_FILE_NAME"
 if [ ! -f "$NEOVIM_BIN" ]; then
 	curl -L "$NEOVIM_DOWNLOAD_URL" --location --output "$NEOVIM_APPIMAGE_PATH" && chmod u+x "$NEOVIM_APPIMAGE_PATH" && ln -s "$NEOVIM_APPIMAGE_PATH" "$NEOVIM_BIN"
 fi
-
