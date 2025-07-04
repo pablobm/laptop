@@ -12,6 +12,8 @@ brew install mpv
 brew install ctags
 brew install direnv
 brew install fish
+brew install zoxide
+brew install fzf # Needed for zoxide
 
 # Needed for mimemagic Ruby gem
 brew install shared-mime-info
