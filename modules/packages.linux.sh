@@ -3,6 +3,10 @@
 sudo apt update
 sudo apt upgrade -y
 
+
+# Read from the new repos
+sudo apt update
+
 sudo apt install -y git
 sudo apt install -y gitg
 sudo apt install -y tig
@@ -15,6 +19,7 @@ sudo apt install -y automake
 sudo apt install -y autoconf
 sudo apt install -y ctags
 sudo apt install -y direnv
+sudo apt install -y wget
 
 # Used by GnuPG to display pictures linked to keys.
 # Recommended but not required.
@@ -29,6 +34,20 @@ sudo apt install -y libssl-dev libreadline-dev zlib1g-dev
 
 # Required for pass-otp
 sudo apt install -y oathtool wl-clipboard tree
+
+
+#
+# Packages from alternative repos
+#
+
+sudo install -dm 755 /etc/apt/keyrings
+
+PATH_TO_KEYRING_FOR_MISE=/etc/apt/keyrings/mise-archive-keyring.gpg
+BASE_URL_FOR_MISE=https://mise.jdx.dev
+PATH_TO_SOURCES_LIST_FOR_MISE=/etc/apt/sources.list.d/mise.list
+wget -qO - "$BASE_URL_FOR_MISE/gpg-key.pub" | gpg --dearmor | sudo tee "$PATH_TO_KEYRING_FOR_MISE" 1> /dev/null
+echo "deb [signed-by=$PATH_TO_KEYRING_FOR_MISE arch=amd64] $BASE_URL_FOR_MISE/deb stable main" | sudo tee "$PATH_TO_SOURCES_LIST_FOR_MISE"
+sudo apt install -y mise
 
 sudo apt autoremove
 
