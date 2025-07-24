@@ -7,3 +7,5 @@ switch (uname)
     set -p PATH /opt/homebrew/bin
 end
 set -p PATH "$HOME/bin"
+
+direnv hook fish | source
