@@ -34,7 +34,7 @@ sudo apt install -y oathtool wl-clipboard tree
 #
 
 sudo install -dm 755 /etc/apt/keyrings
- 
+
 PATH_TO_KEYRING_FOR_FISH="/etc/apt/trusted.gpg.d/shells_fish_release_4.gpg"
 BASE_URL_FOR_FISH="http://download.opensuse.org/repositories/shells:/fish:/release:/4/Debian_12/"
 PATH_TO_SOURCES_LIST_FOR_FISH="/etc/apt/sources.list.d/shells:fish:release:4.list"
