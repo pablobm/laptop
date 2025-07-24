@@ -3,17 +3,18 @@
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt install -y git
-sudo apt install -y gitg
-sudo apt install -y tig
-sudo apt install -y curl
-sudo apt install -y silversearcher-ag
-sudo apt install -y shellcheck
-sudo apt install -y g++
-sudo apt install -y automake
-sudo apt install -y autoconf
-sudo apt install -y ctags
-sudo apt install -y direnv
+sudo apt install -y \
+  git \
+  gitg \
+  tig \
+  curl \
+  silversearcher-ag \
+  shellcheck \
+  g++ \
+  automake \
+  autoconf \
+  ctags \
+  direnv
 
 # Used by GnuPG to display pictures linked to keys.
 # Recommended but not required.
