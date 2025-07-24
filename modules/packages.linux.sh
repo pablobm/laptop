@@ -32,7 +32,7 @@ sudo apt install -y oathtool wl-clipboard tree
 #
 # Packages from alternative repos
 #
-
+ 
 sudo install -dm 755 /etc/apt/keyrings
 
 PATH_TO_KEYRING_FOR_FISH="/etc/apt/trusted.gpg.d/shells_fish_release_4.gpg"
