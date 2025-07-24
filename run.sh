@@ -90,8 +90,6 @@ link_config "dot.gemrc" ".gemrc"
 link_config "dot.ctags" ".ctags"
 link_config "Sublime Text 3" ".config/sublime-text-3"
 
-link_repo "minpac" ".config/nvim/pack/minpac/opt/minpac"
-
 mise install
 
 export PASSWORD_STORE_EXTENSIONS_DIR="$HOME/.password-store/.extensions"
