@@ -4,4 +4,5 @@ idiomatic_version_file_enable_tools = ["ruby"]
 [tools]
 eza = "latest"
 jj = "latest"
+usage = "latest"
 zoxide = "latest"
