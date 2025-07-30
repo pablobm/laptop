@@ -5,6 +5,7 @@ end
 switch (uname)
   case Darwin
     set -p PATH /opt/homebrew/bin
+    ulimit -n 1024
 end
 set -p PATH "$HOME/bin"
 
