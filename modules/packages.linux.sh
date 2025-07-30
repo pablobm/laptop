@@ -42,7 +42,6 @@ PATH_TO_SOURCES_LIST_FOR_FISH="/etc/apt/sources.list.d/shells:fish:release:4.lis
 curl -fsSL "$BASE_URL_FOR_FISH/Release.key" | gpg --dearmor | sudo tee "$PATH_TO_KEYRING_FOR_FISH" > /dev/null
 echo "deb $BASE_URL_FOR_FISH /" | sudo tee "$PATH_TO_SOURCES_LIST_FOR_FISH"
 
-# TODO: make consistent with paths used for fish above
 PATH_TO_KEYRING_FOR_MISE=/etc/apt/keyrings/mise-archive-keyring.gpg
 BASE_URL_FOR_MISE=https://mise.jdx.dev
 PATH_TO_SOURCES_LIST_FOR_MISE=/etc/apt/sources.list.d/mise.list
