@@ -24,3 +24,6 @@ fi
 
 [ui]
 diff-formatter = ["difft", "--color=always", "$left", "$right"]
+
+[git]
+fetch = ["upstream", "origin", "pablobm"]
