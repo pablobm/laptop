@@ -15,3 +15,4 @@ vim.o.clipboard = "unnamed"
 require("config.lazy")
 require("config.lsp")
 require("config.cmp")
+require("config.terminal")
