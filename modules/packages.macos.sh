@@ -6,12 +6,12 @@ brew update
 brew install git
 brew install the_silver_searcher
 brew install shellcheck
-brew install zsh
 brew install nvim
 brew install direnv
 brew install mpv
 brew install ctags
 brew install direnv
+brew install fish
 
 # Needed for mimemagic Ruby gem
 brew install shared-mime-info

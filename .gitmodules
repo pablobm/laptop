@@ -1,12 +1,6 @@
-[submodule "repos/oh-my-zsh"]
-	path = repos/oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
 [submodule "repos/dracula-gnome-terminal"]
 	path = repos/dracula-gnome-terminal
 	url = https://github.com/dracula/gnome-terminal
-[submodule "repos/zsh-syntax-highlighting"]
-	path = repos/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "repos/asdf"]
 	path = repos/asdf
 	url = https://github.com/asdf-vm/asdf.git

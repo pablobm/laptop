@@ -9,7 +9,6 @@ sudo apt install -y tig
 sudo apt install -y curl
 sudo apt install -y silversearcher-ag
 sudo apt install -y shellcheck
-sudo apt install -y zsh
 sudo apt install -y g++
 sudo apt install -y automake
 sudo apt install -y autoconf
@@ -29,6 +28,22 @@ sudo apt install -y libssl-dev libreadline-dev zlib1g-dev
 
 # Required for pass-otp
 sudo apt install -y oathtool wl-clipboard tree
+
+#
+# Packages from alternative repos
+#
+
+sudo install -dm 755 /etc/apt/keyrings
+ 
+PATH_TO_KEYRING_FOR_FISH="/etc/apt/trusted.gpg.d/shells_fish_release_4.gpg"
+BASE_URL_FOR_FISH="http://download.opensuse.org/repositories/shells:/fish:/release:/4/Debian_12/"
+PATH_TO_SOURCES_LIST_FOR_FISH="/etc/apt/sources.list.d/shells:fish:release:4.list"
+curl -fsSL "$BASE_URL_FOR_FISH/Release.key" | gpg --dearmor | sudo tee "$PATH_TO_KEYRING_FOR_FISH" > /dev/null
+echo "deb $BASE_URL_FOR_FISH /" | sudo tee "$PATH_TO_SOURCES_LIST_FOR_FISH"
+
+sudo apt update
+
+sudo apt install -y fish
 
 sudo apt autoremove
 

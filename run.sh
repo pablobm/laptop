@@ -84,6 +84,7 @@ load_platform_specific_module "after-packages"
 link_config "dot.gitconfig" ".gitconfig"
 link_config "dot.config/nvim" ".config/nvim"
 link_config "dot.config/jj" ".config/jj"
+link_config "dot.config/fish" ".config/fish"
 link_config "dot.gemrc" ".gemrc"
 link_config "dot.ctags" ".ctags"
 link_config "Sublime Text 3" ".config/sublime-text-3"
@@ -94,20 +95,6 @@ link_repo "minpac" ".config/nvim/pack/minpac/opt/minpac"
 link_repo "asdf" ".asdf"
 cd "$HOME/.asdf" && git checkout "$(git describe --abbrev=0 --tags)" > /dev/null
 
-# Zsh and friends
-link_config "dot.zshrc" ".zshrc"
-link_repo "oh-my-zsh" ".oh-my-zsh"
-link_repo "zsh-syntax-highlighting" ".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
-
 export PASSWORD_STORE_EXTENSIONS_DIR="$HOME/.password-store/.extensions"
 mkdir -p "$PASSWORD_STORE_EXTENSIONS_DIR"
 link_item "$REPOS_DIR/pass-otp/otp.bash" "$PASSWORD_STORE_EXTENSIONS_DIR"
-
-if [ "$SHELL" != "/usr/bin/zsh" ] && [ -e "/usr/bin/zsh" ]; then
-  sudo chsh -s /usr/bin/zsh "$WHOAMI"
-  zsh
-fi
-if [ "$SHELL" != "/bin/zsh" ] && [ -e "/bin/zsh" ]; then
-  sudo chsh -s /bin/zsh "$WHOAMI"
-  zsh
-fi
