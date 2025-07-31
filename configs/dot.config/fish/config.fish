@@ -9,3 +9,4 @@ end
 set -p PATH "$HOME/bin"
 
 direnv hook fish | source
+mise activate fish | source

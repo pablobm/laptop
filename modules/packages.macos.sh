@@ -12,6 +12,7 @@ brew install mpv
 brew install ctags
 brew install direnv
 brew install fish
+brew install mise
 
 # Needed for mimemagic Ruby gem
 brew install shared-mime-info
