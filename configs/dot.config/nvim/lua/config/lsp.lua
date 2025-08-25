@@ -5,9 +5,6 @@
 -- Always show LSP status column, to avoid expand-collapse
 vim.o.signcolumn = "yes"
 
--- updatetime: set updatetime for CursorHold
--- vim.api.nvim_set_option("updatetime", 300) 
-
 vim.api.nvim_create_autocmd(
   "CursorHold", {
     pattern = "*",
