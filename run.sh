@@ -8,7 +8,7 @@ link_item()
 	DST_PATH="$2"
 
 	if [ -L "$DST_PATH" ] && [ "$(realpath "$DST_PATH")" = "$(realpath "$SRC_PATH")" ]; then
-		echo "SKIP: $DST_PATH <- $SRC_PATH"
+		echo "SKIP: $DST_PATH -> $SRC_PATH"
 	elif [ -e "$DST_PATH" ] || [ -L "$DST_PATH" ]; then
 		while true; do
 			read -rp "You already have a $DST_PATH. What should I do? (S)kip/(O)verwrite: " answer
