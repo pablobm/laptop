@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+set -e
+
 link_item()
 {
 	SRC_PATH="$1"
