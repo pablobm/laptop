@@ -9,7 +9,7 @@ link_item()
 
 	if [ -L "$DST_PATH" ] && [ "$(realpath "$DST_PATH")" = "$(realpath "$SRC_PATH")" ]; then
 		echo "SKIP: $DST_PATH <- $SRC_PATH"
-	elif [ -f "$DST_PATH" ] || [ -L "$DST_PATH" ]; then
+	elif [ -e "$DST_PATH" ] || [ -L "$DST_PATH" ]; then
 		while true; do
 			read -rp "You already have a $DST_PATH. What should I do? (S)kip/(O)verwrite: " answer
 			case $answer in
@@ -96,4 +96,4 @@ mise install
 
 export PASSWORD_STORE_EXTENSIONS_DIR="$HOME/.password-store/.extensions"
 mkdir -p "$PASSWORD_STORE_EXTENSIONS_DIR"
-link_item "$REPOS_DIR/pass-otp/otp.bash" "$PASSWORD_STORE_EXTENSIONS_DIR"
+link_item "$REPOS_DIR/pass-otp/otp.bash" "$PASSWORD_STORE_EXTENSIONS_DIR/otp.bash"
