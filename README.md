@@ -5,9 +5,6 @@ Only tested with Debian Buster.
 ## How to use
 
 1. Clone submodules: `git submodule init && git submodule update`.
-1. Create a new profile for Gnome Terminal named "pablobm". It will receive the
-   Dracula color scheme. This is because the installer apparently can't apply
-   these to the default profile, or create a new profile itself.
 1. Run the installer: `sh ./run.sh`.
 
 ## TODO

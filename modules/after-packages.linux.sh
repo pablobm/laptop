@@ -1,6 +1,13 @@
 #!/usr/bin/env sh
 
-# Dracula theme for Gnome Terminal
-# Requires a pre-existing terminal profile called "pablobm"
-"$REPOS_DIR/dracula-gnome-terminal/install.sh" -s Dracula -p pablobm --skip-dircolors
+TERMINAL_DCONF_DIR=/org/gnome/terminal/legacy/profiles:
 
+# Taken from https://github.com/dracula/gnome-terminal/blob/ccc75a2d7fd915e80d95059a80899249e7161e06/src/profiles.sh#L14
+profile_id="$(uuidgen)"
+dconf write "$TERMINAL_DCONF_DIR/default" "'$profile_id'"
+dconf write "$TERMINAL_DCONF_DIR/list" "['$profile_id']"
+profile_dir="$TERMINAL_DCONF_DIR/:$profile_id"
+dconf write "$profile_dir/visible-name" "'Default'"
+
+# Dracula theme for Gnome Terminal
+"$REPOS_DIR/dracula-gnome-terminal/install.sh" -s Dracula -p Default --skip-dircolors

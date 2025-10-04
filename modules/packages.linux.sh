@@ -17,7 +17,8 @@ sudo apt install -y \
   universal-ctags \
   direnv \
   pass \
-  pass-otp
+  pass-otp \
+  uuid-runtime # For the installer for the Dracula theme on gnome-terminal
 
 # Used by GnuPG to display pictures linked to keys.
 # Recommended but not required.
