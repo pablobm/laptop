@@ -15,7 +15,9 @@ sudo apt install -y \
   automake \
   autoconf \
   universal-ctags \
-  direnv
+  direnv \
+  pass \
+  pass-otp
 
 # Used by GnuPG to display pictures linked to keys.
 # Recommended but not required.
@@ -54,12 +56,6 @@ sudo apt install -y fish
 sudo apt install -y mise
 
 sudo apt autoremove
-
-# As of Debian Stretch, pass is at version 1.6.*,
-# which doesn't support extensions.
-# Install something more up to date.
-cd "$REPOS_DIR/password-store" && sudo make install
-cd "$REPOS_DIR/pass-otp" && sudo make install
 
 # Stretch package for Neovim is old and incompatible with
 # current minpac at the time of writing.
