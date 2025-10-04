@@ -60,8 +60,7 @@ sudo apt install -y mise
 
 sudo apt autoremove
 
-# Stretch package for Neovim is old and incompatible with
-# current minpac at the time of writing.
+# Debian's Neovim package is behind latest, more than I'd prefer.
 # Installing static binary instead
 NEOVIM_BIN="$HOME_BIN/nvim"
 NEOVIM_DOWNLOAD_URL="https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.appimage"
