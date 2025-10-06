@@ -11,9 +11,10 @@ sudo apt install -y \
   silversearcher-ag \
   shellcheck \
   g++ \
+  make \
   automake \
   autoconf \
-  ctags \
+  universal-ctags \
   direnv
 
 # Used by GnuPG to display pictures linked to keys.

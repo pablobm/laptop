@@ -1,13 +1,15 @@
 #!/usr/bin/env sh
 
+set -e
+
 link_item()
 {
 	SRC_PATH="$1"
 	DST_PATH="$2"
 
 	if [ -L "$DST_PATH" ] && [ "$(realpath "$DST_PATH")" = "$(realpath "$SRC_PATH")" ]; then
-		echo "SKIP: $DST_PATH <- $SRC_PATH"
-	elif [ -f "$DST_PATH" ] || [ -L "$DST_PATH" ]; then
+		echo "SKIP: $DST_PATH -> $SRC_PATH"
+	elif [ -e "$DST_PATH" ] || [ -L "$DST_PATH" ]; then
 		while true; do
 			read -rp "You already have a $DST_PATH. What should I do? (S)kip/(O)verwrite: " answer
 			case $answer in
@@ -90,8 +92,8 @@ link_config "dot.gemrc" ".gemrc"
 link_config "dot.ctags" ".ctags"
 link_config "Sublime Text 3" ".config/sublime-text-3"
 
-mise install
+fish -c 'mise install'
 
 export PASSWORD_STORE_EXTENSIONS_DIR="$HOME/.password-store/.extensions"
 mkdir -p "$PASSWORD_STORE_EXTENSIONS_DIR"
-link_item "$REPOS_DIR/pass-otp/otp.bash" "$PASSWORD_STORE_EXTENSIONS_DIR"
+link_item "$REPOS_DIR/pass-otp/otp.bash" "$PASSWORD_STORE_EXTENSIONS_DIR/otp.bash"

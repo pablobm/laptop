@@ -2,8 +2,10 @@
 idiomatic_version_file_enable_tools = ["ruby"]
 
 [tools]
+duf = "latest"
 eza = "latest"
 fzf = "latest"
 jj = "latest"
+ruby = "latest"
 usage = "latest"
 zoxide = "latest"
