@@ -99,3 +99,6 @@ fish -c 'mise install'
 export PASSWORD_STORE_EXTENSIONS_DIR="$HOME/.password-store/.extensions"
 mkdir -p "$PASSWORD_STORE_EXTENSIONS_DIR"
 link_item "$REPOS_DIR/pass-otp/otp.bash" "$PASSWORD_STORE_EXTENSIONS_DIR/otp.bash"
+
+echo
+echo "That should be all. You may need to restart your terminal app for all changes to take effect"
