@@ -4,8 +4,7 @@ Only tested with Debian Buster.
 
 ## How to use
 
-1. Clone submodules: `git submodule init && git submodule update`.
-1. Run the installer: `sh ./run.sh`.
+Run the installer: `sh ./run.sh`.
 
 ## TODO
 

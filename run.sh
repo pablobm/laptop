@@ -77,6 +77,8 @@ REPOS_DIR="$LAPTOP_DIR"/repos
 HOME_BIN="$HOME/bin"
 WHOAMI="$(whoami)"
 
+cd $LAPTOP_DIR && git submodule update --init && cd -
+
 mkdir -p "$HOME_BIN"
 
 load_platform_specific_module "before-packages"
