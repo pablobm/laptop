@@ -8,6 +8,8 @@ dconf write "$TERMINAL_DCONF_DIR/default" "'$profile_id'"
 dconf write "$TERMINAL_DCONF_DIR/list" "['$profile_id']"
 profile_dir="$TERMINAL_DCONF_DIR/:$profile_id"
 dconf write "$profile_dir/visible-name" "'Default'"
+dconf write "$profile_dir/use-custom-command" "true"
+dconf write "$profile_dir/custom-command" "'/usr/bin/fish'"
 
 # Dracula theme for Gnome Terminal
 "$REPOS_DIR/dracula-gnome-terminal/install.sh" -s Dracula -p Default --skip-dircolors
