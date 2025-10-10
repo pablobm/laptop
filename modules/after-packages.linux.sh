@@ -2,6 +2,7 @@
 
 TERMINAL_DCONF_DIR=/org/gnome/terminal/legacy/profiles:
 
+# TODO: don't create the profile if it exists already
 # Create a profile 'Default'
 # Taken from https://github.com/dracula/gnome-terminal/blob/ccc75a2d7fd915e80d95059a80899249e7161e06/src/profiles.sh#L14
 profile_id="$(uuidgen)"
