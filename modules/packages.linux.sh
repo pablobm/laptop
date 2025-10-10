@@ -69,3 +69,9 @@ NEOVIM_APPIMAGE_PATH="$APPIMAGES_DIR/$NEOVIM_FILE_NAME"
 if [ ! -f "$NEOVIM_BIN" ]; then
 	curl -L "$NEOVIM_DOWNLOAD_URL" --location --output "$NEOVIM_APPIMAGE_PATH" && chmod u+x "$NEOVIM_APPIMAGE_PATH" && ln -s "$NEOVIM_APPIMAGE_PATH" "$NEOVIM_BIN"
 fi
+
+# Install Nerd Font with extra glyphs (https://www.nerdfonts.com)
+FONT_ZIP_NAME=FantasqueSansMono.zip
+FONTS_DIR="$HOME/.local/share/fonts/"
+curl --location --output "/tmp/$FONT_ZIP_NAME" "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/$FONT_ZIP_NAME"
+unzip "/tmp/$FONT_ZIP_NAME" -d "$FONTS_DIR"

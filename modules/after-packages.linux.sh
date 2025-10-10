@@ -11,6 +11,7 @@ profile_dir="$TERMINAL_DCONF_DIR/:$profile_id"
 dconf write "$profile_dir/visible-name" "'Default'"
 dconf write "$profile_dir/use-custom-command" "true"
 dconf write "$profile_dir/custom-command" "'/usr/bin/fish'"
+dconf write "$profile_dir/font" "'FantasqueSansM Nerd Font Mono 12'"
 
 # Dracula theme for Gnome Terminal
 "$REPOS_DIR/dracula-gnome-terminal/install.sh" -s Dracula -p Default --skip-dircolors
