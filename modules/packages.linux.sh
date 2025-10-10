@@ -16,8 +16,8 @@ sudo apt install -y \
   autoconf \
   universal-ctags \
   direnv \
-  libffi-dev \    # Ruby
-  libyaml-dev \   # Ruby
+  libffi-dev \
+  libyaml-dev \
   pass \
   pass-otp \
   uuid-runtime # For the installer for the Dracula theme on gnome-terminal
