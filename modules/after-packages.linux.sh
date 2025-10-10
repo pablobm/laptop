@@ -15,7 +15,7 @@ dconf write "$profile_dir/custom-command" "'/usr/bin/fish'"
 dconf write "$profile_dir/font" "'FantasqueSansM Nerd Font Mono 12'"
 
 # Dracula theme for Gnome Terminal
-"$REPOS_DIR/dracula-gnome-terminal/install.sh" -s Dracula -p Default --skip-dircolors
+"$REPOS_DIR/dracula-gnome-terminal/install.sh" --scheme Dracula --profile Default --skip-dircolors
 
 # Set Caps Lock to behave as Ctrl
 dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:ctrl_modifier']"
