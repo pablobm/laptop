@@ -20,7 +20,8 @@ sudo apt install -y \
   libyaml-dev \
   pass \
   pass-otp \
-  uuid-runtime # For the installer for the Dracula theme on gnome-terminal
+  extrepo \
+  uuid-runtime
 
 # Used by GnuPG to display pictures linked to keys.
 # Recommended but not required.
@@ -54,11 +55,20 @@ PATH_TO_SOURCES_LIST_FOR_MISE=/etc/apt/sources.list.d/mise.list
 curl -fsSL "$BASE_URL_FOR_MISE/gpg-key.pub" | gpg --dearmor | sudo tee "$PATH_TO_KEYRING_FOR_MISE" 1> /dev/null
 echo "deb [signed-by=$PATH_TO_KEYRING_FOR_MISE arch=amd64] $BASE_URL_FOR_MISE/deb stable main" | sudo tee "$PATH_TO_SOURCES_LIST_FOR_MISE"
 
+sudo sed --in-place --regexp-extended 's/# (- (contrib|non-free))/\\1/' /etc/extrepo/config.yaml
+sudo extrepo enable docker-ce
+sudo extrepo enable signal
+
 sudo apt update
-sudo apt install -y fish
-sudo apt install -y mise
+sudo apt install -y \
+  fish \
+  mise \
+  docker-ce \
+  signal-desktop
 
 sudo apt autoremove
+
+sudo usermod --append --group docker "$WHOAMI"
 
 # Debian's Neovim package is behind latest, more than I'd prefer.
 # Installing static binary instead
