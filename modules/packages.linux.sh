@@ -20,6 +20,7 @@ sudo apt install -y \
   libyaml-dev \
   pass \
   pass-otp \
+  ripgrep \
   extrepo \
   uuid-runtime
 
