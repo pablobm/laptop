@@ -1,10 +1,16 @@
 # pablobm's laptop setup script
 
-Only tested with Debian Buster.
+Tested with Debian 13 (Trixie) and macOS (can't remember what version last).
 
 ## How to use
 
-Run the installer: `sh ./run.sh`.
+1. Make `sudo` work with your user. On Debian I can run this command and reboot:
+```
+$ su - -c 'usermod --append --groups sudo pablobm'
+```
+1. Install Git.
+1. Clone this repo in an appropriate location.
+1. Run the installer: `sh ./run.sh`.
 
 ## TODO
 
