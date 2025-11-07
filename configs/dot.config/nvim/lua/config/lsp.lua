@@ -31,3 +31,9 @@ vim.api.nvim_create_user_command(
   end,
   {}
 )
+
+if vim.uv.fs_stat(".rubocop.yml") then
+  vim.lsp.enable("rubocop")
+else
+  vim.lsp.enable("standardrb")
+end
