@@ -32,8 +32,26 @@ vim.api.nvim_create_user_command(
   {}
 )
 
-if vim.uv.fs_stat(".rubocop.yml") then
-  vim.lsp.enable("rubocop")
-else
-  vim.lsp.enable("standardrb")
-end
+vim.lsp.config("rubocop", {
+  filetypes = { "ruby" },
+  root_dir = function(bufnr, on_dir)
+    file_path = vim.fn.bufname(bufnr)
+    root_dir = vim.fs.root(file_path, {"Gemfile", ".git"})
+    if vim.uv.fs_stat(root_dir .. "/.rubocop.yml") then
+      vim.print("RUBOCOP!")
+      on_dir(vim.fn.getcwd())
+    end
+  end
+})
+
+vim.lsp.config("standardrb", {
+  filetypes = { "ruby" },
+  root_dir = function(bufnr, on_dir)
+    file_path = vim.fn.bufname(bufnr)
+    root_dir = vim.fs.root(file_path, {"Gemfile", ".git"})
+    if not vim.uv.fs_stat(root_dir .. "/.rubocop.yml") then
+      vim.print("STANDARDRB!")
+      on_dir(vim.fn.getcwd())
+    end
+  end
+})
