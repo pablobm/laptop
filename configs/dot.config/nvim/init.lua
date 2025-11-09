@@ -18,6 +18,12 @@ vim.o.clipboard = "unnamed"
 -- value could lead to bad performance.
 vim.o.updatetime = 300
 
+-- Remove trailing space on save
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*" },
+  command = [[%s/\s\+$//e]],
+})
+
 -- lazy.vim
 require("config.lazy")
 require("config.lsp")
