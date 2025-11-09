@@ -10,3 +10,6 @@ paginate = "never"
 [aliases]
 all = ["log", "-r", "all()"]
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+
+[ui]
+diff-formatter = ["difft", "--color=always", "$left", "$right"]
