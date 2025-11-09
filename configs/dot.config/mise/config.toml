@@ -2,6 +2,7 @@
 idiomatic_version_file_enable_tools = ["ruby"]
 
 [tools]
+bat = "latest"
 bun = "latest"
 difftastic = "latest"
 duf = "latest"
