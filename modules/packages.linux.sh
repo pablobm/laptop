@@ -41,7 +41,7 @@ sudo apt install -y oathtool wl-clipboard tree
 #
 # Packages from alternative repos
 #
- 
+
 sudo install -dm 755 /etc/apt/keyrings
 
 PATH_TO_KEYRING_FOR_FISH="/etc/apt/trusted.gpg.d/shells_fish_release_4.gpg"
@@ -56,7 +56,7 @@ PATH_TO_SOURCES_LIST_FOR_MISE=/etc/apt/sources.list.d/mise.list
 curl -fsSL "$BASE_URL_FOR_MISE/gpg-key.pub" | gpg --dearmor | sudo tee "$PATH_TO_KEYRING_FOR_MISE" 1> /dev/null
 echo "deb [signed-by=$PATH_TO_KEYRING_FOR_MISE arch=amd64] $BASE_URL_FOR_MISE/deb stable main" | sudo tee "$PATH_TO_SOURCES_LIST_FOR_MISE"
 
-sudo sed --in-place --regexp-extended 's/# (- (contrib|non-free))/\\1/' /etc/extrepo/config.yaml
+sudo sed --in-place --regexp-extended 's/# (- (contrib|non-free))/\1/' /etc/extrepo/config.yaml
 sudo extrepo enable docker-ce
 sudo extrepo enable signal
 
