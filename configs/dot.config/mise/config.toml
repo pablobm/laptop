@@ -2,17 +2,20 @@
 idiomatic_version_file_enable_tools = ["ruby", "nodejs"]
 
 [tools]
-bat = "latest"
+# Languages and related tools
 bun = "latest"
+golang = "latest"
+node = "latest"
+ruby = "latest"
+uv = "latest"
+
+# General CLI tools
+bat = "latest"
 difftastic = "latest"
 duf = "latest"
 dust = "latest"
 eza = "latest"
 fzf = "latest"
 jj = "latest"
-node = "latest"
-ruby = "latest"
 usage = "latest"
-uv = "latest"
 zoxide = "latest"
-golang = "latest"
