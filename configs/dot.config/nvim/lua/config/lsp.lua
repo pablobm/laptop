@@ -5,14 +5,9 @@
 -- Always show LSP status column, to avoid expand-collapse
 vim.o.signcolumn = "yes"
 
-vim.api.nvim_create_autocmd(
-  "CursorHold", {
-    pattern = "*",
-    callback = function()
-      vim.diagnostic.open_float(nil, { focusable = false })
-    end,
-  }
-)
+vim.diagnostic.config({
+  virtual_text = true,
+})
 
 -- Manual enable of LSPs
 vim.api.nvim_create_user_command(

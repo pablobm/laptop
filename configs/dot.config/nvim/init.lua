@@ -11,13 +11,6 @@ vim.o.expandtab = true
 -- Taken from Julia Evans's "The Secrets Rules of the Terminal"
 vim.o.clipboard = "unnamed"
 
--- updatetime: time between last keystroke and CursorHold firing.
--- I have an event on CursorHold elsewhere, but
--- this has to be set early on or it won't work.
--- Note that this affects other behaviours. A too-short
--- value could lead to bad performance.
-vim.o.updatetime = 300
-
 -- Remove trailing space on save
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*" },
