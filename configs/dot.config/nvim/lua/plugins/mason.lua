@@ -2,8 +2,15 @@ return {
     "mason-org/mason-lspconfig.nvim",
     opts = {
       automatic_enable = {
-        "rubocop",
-        "standardrb",
+        "rubocop", "standardrb",
+        "ruff",
+        "herb_ls",
+        "rust_analyzer",
+      },
+      ensure_installed = {
+        "rubocop", "standardrb",
+        "ruff",
+        "herb_ls",
         "rust_analyzer",
       }
     },
