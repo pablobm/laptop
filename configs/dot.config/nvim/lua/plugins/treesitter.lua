@@ -1,7 +1,8 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  lazy = false,
   build = ":TSUpdate",
-  config = function()
+  setup = function()
     require("nvim-treesitter").install({
       "elixir", "eex", "heex",
       "lua",
