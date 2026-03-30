@@ -16,6 +16,7 @@ paginate = "never"
 
 [aliases]
 all = ["log", "-r", "all()"]
+
 # tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
 tug = ["util", "exec", "--", "sh", "-c", """
 if [ "x$1" = "x" ]; then
@@ -25,9 +26,11 @@ else
 fi
 """, ""]
 
+showp = ["show", "-r", "@-"]
+showpp = ["show", "-r", "@--"]
+
 [ui]
 diff-formatter="delta"
 
 [merge-tools.delta]
 diff-args=["--side-by-side", "$left", "$right", "--width=$width"]
-
