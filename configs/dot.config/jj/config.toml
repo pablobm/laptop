@@ -25,13 +25,9 @@ else
 fi
 """, ""]
 
-# Commenting out in order to try delta instead
-# [ui]
-# diff-formatter = ["difft", "--color=always", "$left", "$right"]
-
-# Config for delta from https://github.com/jj-vcs/jj/discussions/4690#discussioncomment-14759025
 [ui]
 diff-formatter="delta"
+
 [merge-tools.delta]
 diff-args=["--side-by-side", "$left", "$right", "--width=$width"]
 
