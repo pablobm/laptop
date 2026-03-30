@@ -7,6 +7,8 @@ vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
 
+vim.o.shell = "fish"
+
 -- Use the system clipboard.
 -- Taken from Julia Evans's "The Secrets Rules of the Terminal"
 vim.o.clipboard = "unnamed"
