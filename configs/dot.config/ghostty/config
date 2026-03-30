@@ -57,5 +57,12 @@ command = sh -c "test -e /usr/bin/fish && /usr/bin/fish --login --interactive ||
 
 theme = dracula
 
+font-family = "Maple Mono NF"
+font-size = 16
+
+# https://font.subf.dev/en/playground/
+# cv02: alternative "a"
+font-feature = +cv02
+
 # Pending
 #keybind = ctrl+f=search:Ghostty
