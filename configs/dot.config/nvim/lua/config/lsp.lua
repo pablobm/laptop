@@ -57,3 +57,13 @@ vim.lsp.config("rubocop", {
 vim.lsp.config("standardrb", {
   root_dir = rubocop_yml_expected(false)
 })
+
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" }
+      }
+    }
+  }
+})
