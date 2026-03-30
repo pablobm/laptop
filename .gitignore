@@ -3,3 +3,6 @@ configs/dot.config/nvim/backup/
 configs/dot.config/nvim/swp/
 configs/dot.config/nvim/pack/*
 configs/dot.config/nvim/lazy-lock.json
+
+# JJ: per-repo config to prevent cloning config in from other repos.
+configs/dot.config/jj/repos
