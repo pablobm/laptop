@@ -53,7 +53,7 @@
 # pablobm
 #
 
-command = /usr/bin/fish --login --interactive
+command = sh -c "test -e /usr/bin/fish && /usr/bin/fish --login --interactive || /opt/homebrew/bin/fish --login --interactive"
 
 theme = dracula
 
