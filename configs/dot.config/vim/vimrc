@@ -1,2 +1,9 @@
 syntax enable
 colorscheme dracula
+
+"
+" Terminal
+"
+
+set termguicolors " Colors by default
+set shell=fish
