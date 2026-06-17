@@ -2,6 +2,9 @@
 name = "Pablo Brasero"
 email = "pablo@pablobm.com"
 
+[git]
+fetch = ["upstream", "origin", "pablobm"]
+
 [[--scope]]
 --when.commands = ["status"]
 [--scope.ui]
@@ -32,5 +35,3 @@ diff-formatter="delta"
 [merge-tools.delta]
 diff-args=["--side-by-side", "$left", "$right", "--width=$width"]
 
-[git]
-fetch = ["upstream", "origin", "pablobm"]
