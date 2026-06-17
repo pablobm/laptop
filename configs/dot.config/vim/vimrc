@@ -1,5 +1,4 @@
 syntax enable
-colorscheme dracula
 
 "
 " Terminal
@@ -7,3 +6,36 @@ colorscheme dracula
 
 set termguicolors " Colors by default
 set shell=fish
+
+"
+" Packages
+"
+
+" First ensure that vim-plug is installed
+let config_dir = '~/.config/vim'
+if empty(glob(config_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.config_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Now actually install packages
+call plug#begin()
+
+Plug 'tpope/vim-sensible'
+
+Plug 'dracula/vim', { 'as': 'dracula' }
+
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'preservim/nerdtree'
+
+call plug#end()
+
+"
+" Package configurations
+"
+
+colorscheme dracula
+
+let g:ctrlp_map = '<C-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
