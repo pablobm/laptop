@@ -1,4 +1,17 @@
 syntax enable
+set colorcolumn=80
+
+set expandtab
+set shiftwidth=4
+set autoindent
+set smartindent
+
+" `directory` is a special global, controlling the location of swap files.
+silent !mkdir -p '/home/pablobm/.local/state/vim/swp'
+set directory^=/home/pablobm/.local/state/vim/swp
+
+" Remove trailing spaces on save, on any file (`*`)
+autocmd BufWritePre * :%s/\s\+$//e
 
 "
 " Terminal
@@ -25,8 +38,11 @@ Plug 'tpope/vim-sensible'
 
 Plug 'dracula/vim', { 'as': 'dracula' }
 
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
 Plug 'preservim/nerdtree'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -36,6 +52,10 @@ call plug#end()
 
 colorscheme dracula
 
-let g:ctrlp_map = '<C-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
+nmap <c-p> :GFiles<cr>
+let g:fzf_vim = {}
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+cnoreabbrev Ag Ack
